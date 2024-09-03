@@ -1,12 +1,13 @@
-import './App.css';
+import './styles/app.scss';
 
+import Header from './components/Header';
 
 
 function App() {
 
     return (
         <>
-            
+            <Header />
         </>
     )
 }

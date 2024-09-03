@@ -1,0 +1,27 @@
+@use '../abstracts/colors' as color;
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: color.$blue-10;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 121.6rem;
+    margin: auto;
+}
