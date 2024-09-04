@@ -1,0 +1,119 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/breakpoints' as media;
+
+.listFilmsContainer {
+    margin-top: 10rem;
+
+    .filmContainer {
+        position: relative;
+        transition: all .3s;
+        width: max-content;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, rgba(0, 0, 0, 0.700) 80%);
+            position: absolute;
+            bottom: .2rem;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 10;
+            border-radius: 1rem;
+        }
+
+        .filmContainerImage img {
+            width: 20rem;
+            border-radius: 1rem;
+        }
+
+        .filmContainerMainTitle {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all .3s;
+            z-index: 20;
+        }
+
+        .mainTitle {
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .containerStars {
+            margin-top: 1rem;
+            display: flex;
+            gap: .7rem;
+
+            svg {
+                color: yellow;
+                font-size: 1.4rem;
+            }
+        }
+
+        .filmContainerMoreInformation {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            max-width: 80%;
+            opacity: 0;
+            transform: translateY(4rem);
+            transition: all .3s;
+            z-index: 10;
+            pointer-events: none;
+            z-index: 20;
+
+            .moreInformationDescription {
+                margin-top: 1rem;
+                font-size: 1.4rem;
+                color: white;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: normal;
+            }
+
+            .btnSeeMore {
+                margin-top: 1rem;
+                width: 100%;
+                padding: .5rem 0;
+                background-color: #5e46fc;
+                color: color.$white;
+            }
+        }
+
+        .filmContainerBackdrop {
+            // background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0, rgba(0, 0, 0, 0.507) 40%);
+            background-color: rgba(0, 0, 0, 0.486);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: .2rem;
+            left: 0;
+            border-radius: 1rem;
+            opacity: 0;
+            transition: all .2s;
+        }
+
+        &:hover .filmContainerMoreInformation {
+            opacity: 100;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        &:hover .filmContainerMainTitle {
+            opacity: 0;
+        }
+
+        &:hover .filmContainerBackdrop {
+            opacity: 100;
+        }
+    }
+}

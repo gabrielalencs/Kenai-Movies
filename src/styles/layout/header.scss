@@ -2,10 +2,14 @@
 @use '../abstracts/breakpoints' as media;
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     padding: 4rem 3rem;
+    background-color: #0e142783;
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     .headerBrand span {
         font-size: 4rem;
@@ -60,7 +64,7 @@
 
     }
 
-    @media (width <= 992px) {
+    @media (width <=992px) {
         .menuMobileActive {
             transform: translateY(13rem);
             width: 29rem;
@@ -100,25 +104,25 @@
             }
         }
 
-        @media (width >= 992px) {
+        @media (width >=992px) {
             .inputCheckbox:focus {
                 border: none;
                 outline: none;
             }
-    
+
             .inputCheckbox:checked {
                 right: 1rem;
             }
-    
+
             .inputCheckbox:checked~.mainBox {
                 width: 5rem;
             }
-    
+
             .inputCheckbox:checked~.mainBox .searchInput {
                 width: 0;
                 height: 0px;
             }
-    
+
             .inputCheckbox:checked~.mainBox .iconContainer {
                 padding-right: .8rem;
             }

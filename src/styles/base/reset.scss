@@ -24,7 +24,14 @@ ul {
     list-style-type: none;
 }
 
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: .5rem;
+}
+
 .container {
     max-width: 121.6rem;
     margin: auto;
 }
+
