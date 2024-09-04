@@ -1,10 +1,11 @@
 @use '../abstracts/colors' as color;
+@use '../abstracts/breakpoints' as media;
 
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 3rem;
+    padding: 4rem 3rem;
 
     .headerBrand span {
         font-size: 4rem;
@@ -19,109 +20,236 @@
         gap: 7rem;
     }
 
-    .headerNav li {
-        color: color.$white;
-        font-size: 1.9rem;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        cursor: pointer;
+    .headerNav {
+        background-color: rgba(18, 16, 34, 0.842);
+        border-radius: 2rem 0 0 2rem;
+        position: absolute;
+        transform: translateY(13rem);
+        right: 0;
+        width: 0;
+        padding: 0;
+        transition: all .6s;
+        opacity: 0;
+        padding: 3rem;
 
-        svg {
-            font-size: 2.1rem;
+        @include media.laptops {
+            padding: 0;
+            position: static;
+            transform: translate(0, 0);
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            gap: 7rem;
+            opacity: 100;
+        }
+
+        li {
+            color: color.$white;
+            font-size: 1.9rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            cursor: pointer;
+            white-space: nowrap;
+
+            svg {
+                font-size: 2.1rem;
+            }
+        }
+
+    }
+
+    @media (width <= 992px) {
+        .menuMobileActive {
+            transform: translateY(13rem);
+            width: 29rem;
+            opacity: 100;
         }
     }
-}
 
+    // search bar
 
+    .containerSearchBar {
+        margin-top: 3rem;
+        position: relative;
+        box-sizing: border-box;
+        width: fit-content;
+        cursor: pointer;
 
-// search bar
+        @include media.laptops {
+            margin-top: 0;
+        }
 
-.containerSearchBar {
-    position: relative;
-    box-sizing: border-box;
-    width: fit-content;
-    cursor: pointer;
-}
+        .mainBox {
+            box-sizing: border-box;
+            position: relative;
+            width: 23rem;
+            height: 5rem;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16rem;
+            background-color: rgba(27, 24, 46, 0.904);
+            // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+            transition: all 0.3s ease;
 
-.mainBox {
-    box-sizing: border-box;
-    position: relative;
-    width: 23rem;
-    height: 5rem;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16rem;
-    background-color: rgba(18, 16, 34, 0.842);
-    // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+            @include media.tablets {
+                background-color: rgba(18, 16, 34, 0.842);
+            }
+        }
 
-    transition: all 0.3s ease;
-}
+        @media (width >= 992px) {
+            .inputCheckbox:focus {
+                border: none;
+                outline: none;
+            }
+    
+            .inputCheckbox:checked {
+                right: 1rem;
+            }
+    
+            .inputCheckbox:checked~.mainBox {
+                width: 5rem;
+            }
+    
+            .inputCheckbox:checked~.mainBox .searchInput {
+                width: 0;
+                height: 0px;
+            }
+    
+            .inputCheckbox:checked~.mainBox .iconContainer {
+                padding-right: .8rem;
+            }
+        }
 
-.inputCheckbox:focus {
-    border: none;
-    outline: none;
-}
+        .inputCheckbox {
+            box-sizing: border-box;
+            width: 3rem;
+            height: 4.5rem;
+            position: absolute;
+            right: 1.7rem;
+            top: .2rem;
+            z-index: 9;
+            cursor: pointer;
+            appearance: none;
+        }
 
-.inputCheckbox:checked {
-    right: 1rem;
-}
+        .searchInput {
+            box-sizing: border-box;
+            height: 100%;
+            width: 17rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            padding-bottom: .4rem;
+            padding-left: 1rem;
+            font-size: 1.6rem;
+            color: white;
+            transition: all 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+        }
 
-.inputCheckbox:checked~.mainBox {
-    width: 5rem;
-}
+        .searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.776);
+        }
 
-.inputCheckbox:checked~.mainBox .searchInput {
-    width: 0;
-    height: 0px;
-}
+        .iconContainer {
+            box-sizing: border-box;
+            padding-top: .5rem;
+            width: fit-content;
+            transition: all 0.3s ease;
+        }
 
-.inputCheckbox:checked~.mainBox .iconContainer {
-    padding-right: .8rem;
-}
+        .searchIcon {
+            box-sizing: border-box;
+            fill: white;
+            font-size: 2.5rem;
+        }
+    }
 
-.inputCheckbox {
-    box-sizing: border-box;
-    width: 3rem;
-    height: 4.5rem;
-    position: absolute;
-    right: 1.7rem;
-    top: .2rem;
-    z-index: 9;
-    cursor: pointer;
-    appearance: none;
-}
+    // button mobile
 
-.searchInput {
-    box-sizing: border-box;
-    height: 100%;
-    width: 17rem;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    padding-bottom: .4rem;
-    padding-left: 1rem;
-    font-size: 1.6rem;
-    color: white;
-    transition: all 0.3s ease;
-    font-family: 'Open Sans', sans-serif;
-}
+    .headerButtonMobile {
 
-.searchInput::placeholder {
-    color: rgba(255, 255, 255, 0.776);
-}
+        @include media.laptops {
+            display: none;
+        }
 
-.iconContainer {
-    box-sizing: border-box;
-    padding-top: .5rem;
-    width: fit-content;
-    transition: all 0.3s ease;
-}
+        .container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
 
-.searchIcon {
-    box-sizing: border-box;
-    fill: white;
-    font-size: 2.5rem;
+        .container {
+            display: block;
+            position: relative;
+            cursor: pointer;
+            font-size: 20px;
+            user-select: none;
+        }
+
+        .checkmark {
+            position: relative;
+            top: 0;
+            left: 0;
+            height: 1.3em;
+            width: 1.3em;
+        }
+
+        .checkmark span {
+            width: 32px;
+            height: 2px;
+            background-color: white;
+            position: absolute;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+        }
+
+        .checkmark span:nth-child(1) {
+            top: 10%;
+        }
+
+        .checkmark span:nth-child(2) {
+            top: 50%;
+        }
+
+        .checkmark span:nth-child(3) {
+            top: 90%;
+        }
+
+        .container input:checked+.checkmark span:nth-child(1) {
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            -webkit-transform: translateY(-50%) rotate(45deg);
+            -moz-transform: translateY(-50%) rotate(45deg);
+            -ms-transform: translateY(-50%) rotate(45deg);
+            -o-transform: translateY(-50%) rotate(45deg);
+        }
+
+        .container input:checked+.checkmark span:nth-child(2) {
+            top: 50%;
+            transform: translateY(-50%) rotate(-45deg);
+            -webkit-transform: translateY(-50%) rotate(-45deg);
+            -moz-transform: translateY(-50%) rotate(-45deg);
+            -ms-transform: translateY(-50%) rotate(-45deg);
+            -o-transform: translateY(-50%) rotate(-45deg);
+        }
+
+        .container input:checked+.checkmark span:nth-child(3) {
+            transform: translateX(-50px);
+            -webkit-transform: translateX(-50px);
+            -moz-transform: translateX(-50px);
+            -ms-transform: translateX(-50px);
+            -o-transform: translateX(-50px);
+            opacity: 0;
+        }
+    }
 }

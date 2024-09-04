@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 // Styles
 
@@ -7,16 +7,34 @@ import '../../styles/layout/_header.scss';
 // Icons
 
 import { IoSearchSharp } from "react-icons/io5";
-import { FaRegHeart  } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa6";
 
 
 const Header = () => {
 
+
     const [openSearchBar, setOpenSearchBar] = useState(true);
+    const [menuMobileActive, setMenuMobileActive] = useState(false);
 
-    
-    
+    const handleClickButtonMobile = () => setMenuMobileActive(!menuMobileActive);
 
+
+    const handleResize = useCallback(() => {
+        const buttonMenuMobile = document.querySelector('.headerButtonMobile input');
+
+        if (window.innerWidth > 992) {
+            setMenuMobileActive(false);
+            buttonMenuMobile.checked = false;
+        }
+    }, []);
+    
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        handleResize();
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, [handleResize]);
 
     return (
         <header className='header container'>
@@ -25,7 +43,14 @@ const Header = () => {
             </div>
 
             <div className='headerContent'>
-                <div>
+                <nav className={`headerNav ${menuMobileActive ? 'menuMobileActive' : ''}`}>
+                    <ul>
+                        <li>
+                            Minha lista
+                            <FaRegHeart />
+                        </li>
+                    </ul>
+
                     <div className="containerSearchBar">
                         <input
                             type="checkbox"
@@ -44,16 +69,21 @@ const Header = () => {
                             />
                         </div>
                     </div>
-                </div>
-
-                <nav className='headerNav'>
-                    <ul>
-                        <li>
-                            Minha lista
-                            <FaRegHeart />
-                        </li>
-                    </ul>
                 </nav>
+
+                <div className='headerButtonMobile'>
+                    <label className="container">
+                        <input
+                            type="checkbox"
+                            onChange={handleClickButtonMobile}
+                        />
+                        <div className="checkmark">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
             </div>
         </header>
     )
