@@ -3,11 +3,13 @@
 
 .listFilmsContainer {
     margin-top: 10rem;
+    display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 4rem;
 
     .filmContainer {
         position: relative;
         transition: all .3s;
-        width: max-content;
         cursor: pointer;
 
         &::after {
@@ -26,7 +28,7 @@
         }
 
         .filmContainerImage img {
-            width: 20rem;
+            width: 100%;
             border-radius: 1rem;
         }
 
@@ -38,6 +40,7 @@
             flex-direction: column;
             transition: all .3s;
             z-index: 20;
+            padding-right: 1rem;
         }
 
         .mainTitle {
