@@ -2,13 +2,13 @@
 @use '../abstracts/breakpoints' as media;
 
 .header {
-    padding: 4rem 3rem;
     background-color: #0e142783;
 
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 4rem;
     }
 
     .headerBrand span {

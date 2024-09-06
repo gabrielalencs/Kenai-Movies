@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
-
 import '../../styles/layout/listFilms.scss';
 
-import Image from '../../assets/images/image-4.png';
-
 import { FaStar } from "react-icons/fa6";
+
 import useFetchData from '../../hooks/useFetchData';
 
 
