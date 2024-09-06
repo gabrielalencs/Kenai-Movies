@@ -5,7 +5,7 @@
     margin-top: 10rem;
 
     .listFilmsGrid {
-        margin-top: 5rem;
+        margin: 5rem 0 10rem;
         display: grid;
         grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 4rem;
@@ -68,18 +68,22 @@
             font-size: 1.5rem;
         }
 
-        .containerStars {
-            margin-top: 1rem;
+        .averageTitle {
+            margin-top: .5rem;
             display: flex;
-            gap: .7rem;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            font-size: 1.5rem;
 
             svg {
                 color: yellow;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
             }
         }
 
         .filmContainerMoreInformation {
+            width: 100%;
             position: absolute;
             bottom: 1.5rem;
             left: 1.5rem;
@@ -97,14 +101,14 @@
                 color: white;
                 display: -webkit-box;
                 -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
+                -webkit-line-clamp: 3;
                 overflow: hidden;
                 text-overflow: ellipsis;
                 white-space: normal;
             }
 
             .btnSeeMore {
-                margin-top: 1rem;
+                margin-top: 1.5rem;
                 width: 100%;
                 padding: .5rem 0;
                 background-color: #5e46fc;
@@ -141,7 +145,7 @@
     }
 
     .fadeInUp {
-        animation: fadeInUp 1s  forwards;
+        animation: fadeInUp .9s  forwards;
     }
 
     @keyframes fadeInUp {

@@ -11,16 +11,14 @@ import useFetchData from '../../hooks/useFetchData';
 
 const ListFilms = () => {
 
-    const { favoriteMoviesList, loadingMovies } = useFetchData('https://api.themoviedb.org/3/movie/now_playing?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
-
-
+    const { favoriteMoviesList } = useFetchData('https://api.themoviedb.org/3/movie/now_playing?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
 
     return (
         <section className='listFilmsContainer container'>
 
             <h2 className='listFilmsTitle'>Filmes em Cartaz</h2>
 
-            <div className={`listFilmsGrid ${loadingMovies ? 'fadeInUp' : ''}`}>
+            <div className='listFilmsGrid fadeInUp'>
                 {
                     favoriteMoviesList.map(favoriteMovie => (
                         <div className='filmContainer' key={favoriteMovie.id}>
@@ -31,27 +29,20 @@ const ListFilms = () => {
                                 <span className='mainTitle'>
                                     {favoriteMovie.title}
                                 </span>
-                                <div className='containerStars'>
+                                
+                                <span className='averageTitle'>
                                     <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                </div>
+                                    {favoriteMovie.vote_average.toFixed(1)}
+                                </span>
                             </div>
                             <div className='filmContainerMoreInformation'>
                                 <span className='mainTitle'>
                                     {favoriteMovie.title}
                                 </span>
-                                <div className='containerStars'>
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                    <FaStar />
-                                </div>
                                 <p className='moreInformationDescription'>
-                                    {favoriteMovie.overview}
+                                    {
+                                        favoriteMovie.overview !== '' ? favoriteMovie.overview : 'Sem Sinopse'
+                                    }
                                 </p>
                                 <button className='btnSeeMore'>Ver Mais</button>
                             </div>
