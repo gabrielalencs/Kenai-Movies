@@ -3,9 +3,29 @@
 
 .listFilmsContainer {
     margin-top: 10rem;
-    display: grid;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 4rem;
+
+    .listFilmsGrid {
+        margin-top: 5rem;
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 4rem;
+    }
+
+    .listFilmsTitle {
+        font-size: 3rem;
+        color: color.$white;
+        width: max-content;
+
+        &::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: .5rem;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+        }
+    }
 
     .filmContainer {
         position: relative;
@@ -117,6 +137,22 @@
 
         &:hover .filmContainerBackdrop {
             opacity: 100;
+        }
+    }
+
+    .fadeInUp {
+        animation: fadeInUp 1s  forwards;
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translate3d(0, 25rem, 0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
         }
     }
 }
