@@ -25,7 +25,7 @@
     }
 
     .headerNav {
-        background-color: rgba(18, 16, 34, 0.842);
+        background-color: rgb(18, 16, 34);
         border-radius: 2rem 0 0 2rem;
         position: absolute;
         transform: translateY(13rem);
@@ -35,8 +35,10 @@
         transition: all .6s;
         opacity: 0;
         padding: 3rem;
+        overflow: hidden;
 
         @include media.laptops {
+            background-color: rgba(18, 16, 34, 0.842);
             padding: 0;
             position: static;
             transform: translate(0, 0);
@@ -46,6 +48,7 @@
             flex-direction: row-reverse;
             gap: 7rem;
             opacity: 100;
+            width: max-content;
         }
 
         li {
