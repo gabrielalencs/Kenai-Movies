@@ -15,7 +15,7 @@ const useFetchData = (apiUrl) => {
         getFavoriteMoviesList();
     }, [apiUrl]);
 
-    return { favoriteMoviesList };
+    return favoriteMoviesList
 
 };
 

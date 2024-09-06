@@ -35,3 +35,18 @@ button {
     margin: auto;
 }
 
+.fadeInUp {
+    animation: fadeInUp .9s  forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 25rem, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}

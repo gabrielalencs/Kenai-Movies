@@ -8,14 +8,14 @@ import useFetchData from '../../hooks/useFetchData';
 
 const ListFilms = () => {
 
-    const { favoriteMoviesList } = useFetchData('https://api.themoviedb.org/3/movie/now_playing?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
+    const favoriteMoviesList = useFetchData('https://api.themoviedb.org/3/movie/now_playing?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
 
     return (
-        <section className='listFilmsContainer container'>
+        <section className='listFilmsContainer container fadeInUp'>
 
             <h2 className='listFilmsTitle'>Filmes em Cartaz</h2>
 
-            <div className='listFilmsGrid fadeInUp'>
+            <div className='listFilmsGrid '>
                 {
                     favoriteMoviesList.map(favoriteMovie => (
                         <div className='filmContainer' key={favoriteMovie.id}>
