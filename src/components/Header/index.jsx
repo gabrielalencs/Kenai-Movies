@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -10,11 +10,20 @@ import { IoSearchSharp } from "react-icons/io5";
 
 const Header = () => {
 
+    const menuDropdownRef = useRef(null);
+
     const [openSearchBar, setOpenSearchBar] = useState(true);
     const [menuMobileActive, setMenuMobileActive] = useState(false);
+    const [menuDropdownActive, setMenuDropdownActive] = useState(false);
+
 
     const handleClickButtonMobile = () => setMenuMobileActive(!menuMobileActive);
 
+    const handleClickLinkMenuDropdown = () => {
+        setMenuDropdownActive(!menuDropdownActive);
+
+        document.querySelector('body').classList.toggle('menuDropdownActive');
+    };
 
     const handleResize = useCallback(() => {
         const buttonMenuMobile = document.querySelector('.headerButtonMobile input');
@@ -24,7 +33,8 @@ const Header = () => {
             buttonMenuMobile.checked = false;
         }
     }, []);
-    
+
+
     useEffect(() => {
         window.addEventListener('resize', handleResize);
 
@@ -33,32 +43,40 @@ const Header = () => {
         return () => window.removeEventListener('resize', handleResize);
     }, [handleResize]);
 
+    useEffect(() => {
+        document.addEventListener('click', (e) => {
+            if (menuDropdownRef.current && !menuDropdownRef.current.contains(e.target)) {
+                setMenuDropdownActive(false);
+                document.querySelector('body').classList.remove('menuDropdownActive');
+            }
+        });
+    }, [menuMobileActive]);
+
+
     return (
         <header className='header'>
             <div className="container">
                 <div className='headerBrand'>
-                    <span>Kenai</span>
+                    <Link to='/'>
+                        <span>Kenai</span>
+                    </Link>
                 </div>
 
                 <div className='headerContent'>
                     <nav className={`headerNav ${menuMobileActive ? 'menuMobileActive' : ''}`}>
                         <ul className='headerList'>
-                            <li>Filmes</li>
+                            <li className='listItem' ref={menuDropdownRef} onClick={handleClickLinkMenuDropdown}>
+                                Filmes
 
-                            <li>
-                                <Link to='/'>Populares</Link>
-                                
-                            </li>
-                            <li>
-                                <Link to='/now-showing'>Em cartaz</Link>
-                            </li>
-                            <li>
-                                <Link to='/top-rated'>Melhores</Link>
+                                <ul className={`headerMenuDropdown ${menuDropdownActive ? 'menuDropdownActive' : ''}`}>
+                                    <Link to='/' className='dropdownItem'>Populares</Link>
+                                    <Link to='/now-showing' className='dropdownItem'>Em cartaz</Link>
+                                    <Link to='/top-rated' className='dropdownItem'>Mais bem avaliados</Link>
+                                </ul>
                             </li>
 
-                            <li>
+                            <li className='listItem'>
                                 Minha lista
-                                {/* <FaRegHeart /> */}
                             </li>
                         </ul>
 
@@ -69,6 +87,7 @@ const Header = () => {
                                 checked={openSearchBar}
                                 onChange={() => setOpenSearchBar(!openSearchBar)}
                             />
+
                             <div className="mainBox">
                                 <div className="iconContainer">
                                     <IoSearchSharp className="searchIcon" />
@@ -81,13 +100,14 @@ const Header = () => {
                             </div>
                         </div>
                     </nav>
-                    
+
                     <div className='headerButtonMobile'>
                         <label className="container">
                             <input
                                 type="checkbox"
                                 onChange={handleClickButtonMobile}
                             />
+
                             <div className="checkmark">
                                 <span></span>
                                 <span></span>

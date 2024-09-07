@@ -2,13 +2,16 @@
 @use '../abstracts/breakpoints' as media;
 
 .listFilmsContainer {
-    margin-top: 10rem;
+    margin-top: 16rem;
     padding: 0 4rem;
+    position: relative;
+    z-index: 1;
 
     .listFilmsGrid {
         margin: 8rem 0 10rem;
         display: grid;
         gap: 5rem;
+        z-index: 1;
 
         @include media.tablets {
             gap: 4rem;

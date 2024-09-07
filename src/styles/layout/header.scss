@@ -35,7 +35,6 @@
         transition: all .6s;
         opacity: 0;
         padding: 3rem;
-        overflow: hidden;
 
         @include media.laptops {
             background-color: rgba(18, 16, 34, 0.842);
@@ -54,14 +53,15 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            
+            position: relative;
+
             @include media.laptops {
                 flex-direction: row;
                 gap: 4rem;
             }
         }
 
-        li {
+        .listItem {
             color: color.$white;
             font-size: 1.9rem;
             display: flex;
@@ -74,7 +74,42 @@
                 font-size: 2.1rem;
             }
         }
+    }
 
+    .headerMenuDropdown {
+        background-color: #21203c;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.6rem;
+        position: absolute;
+        top: 5rem;
+        overflow: hidden;
+        opacity: 0;
+        transition: all .5s;
+        transform: translateY(-3rem);
+        z-index: 5;
+
+        .dropdownItem {
+            transition: all .3s;
+            padding: 1.5rem 2rem;
+
+            a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+            }
+
+            &:hover {
+                background-color: #333253;
+            }
+        }
+    }
+
+    .menuDropdownActive {
+        opacity: 1;
+        transform: translateY(0);
+        padding-right: 0;
     }
 
     @media (width <=992px) {
