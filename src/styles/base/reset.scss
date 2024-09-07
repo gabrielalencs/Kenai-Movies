@@ -36,17 +36,31 @@ button {
 }
 
 .fadeInUp {
-    animation: fadeInUp .9s  forwards;
+    animation: fadeInUp .9s forwards;
+}
+
+.fade {
+    animation: fade .9s forwards;
 }
 
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translate3d(0, 25rem, 0);
+        transform: translate3d(0, -10rem, 0);
     }
 
     100% {
         opacity: 1;
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

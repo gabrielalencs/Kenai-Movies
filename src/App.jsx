@@ -6,10 +6,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './styles/base/reset.scss';
 
+// Context
+
+import { CategoryInformationProvider } from "./context/CategoryInformationContext";
+
 // Components
 
 import Header from './components/Header';
-import ListFilms from './components/ListFilms';
 
 // Pages
 
@@ -21,19 +24,19 @@ import MoviesNowShowing from "./pages/MoviesNowShowing";
 function App() {
 
 
-
-
     return (
         <>
 
             <BrowserRouter>
                 <Header />
 
-                <Routes>
-                    <Route path='/' element={<MoviesNowShowing />} />
-                    <Route path='/popular-movies' element={<PopularMovies />} />
-                    <Route path='/best-movies' element={<BestMovies />} />
-                </Routes>
+                <CategoryInformationProvider>
+                    <Routes>
+                        <Route path='/' element={<PopularMovies />} />
+                        <Route path='/now-showing' element={<MoviesNowShowing />} />
+                        <Route path='/top-rated' element={<BestMovies />} />
+                    </Routes>
+                </CategoryInformationProvider>
             </BrowserRouter>
         </>
     )

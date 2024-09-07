@@ -2,23 +2,18 @@ import '../../styles/layout/listFilms.scss';
 
 import { FaStar } from "react-icons/fa6";
 
-import useFetchData from '../../hooks/useFetchData';
 
-
-
-const ListFilms = () => {
-
-    const favoriteMoviesList = useFetchData('https://api.themoviedb.org/3/movie/now_playing?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
-
+const ListFilms = ({ title, listFilms }) => {
     return (
         <section className='listFilmsContainer container fadeInUp'>
-
-            <h2 className='listFilmsTitle'>Filmes em Cartaz</h2>
+            <h2 className='listFilmsTitle'>
+                {title}
+            </h2>
 
             <div className='listFilmsGrid '>
                 {
-                    favoriteMoviesList.map(favoriteMovie => (
-                        <div className='filmContainer' key={favoriteMovie.id}>
+                    listFilms.map(favoriteMovie => (
+                        <div className='filmContainer fade' key={favoriteMovie.id}>
                             <div className='filmContainerImage'>
                                 <img src={`https://image.tmdb.org/t/p/w500/${favoriteMovie.poster_path}`} />
                             </div>
@@ -26,7 +21,7 @@ const ListFilms = () => {
                                 <span className='mainTitle'>
                                     {favoriteMovie.title}
                                 </span>
-                                
+
                                 <span className='averageTitle'>
                                     <FaStar />
                                     {favoriteMovie.vote_average.toFixed(1)}
@@ -48,8 +43,6 @@ const ListFilms = () => {
                     ))
                 }
             </div>
-
-
         </section>
     )
 }

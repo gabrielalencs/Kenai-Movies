@@ -1,13 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 
-// Styles
+import { Link } from 'react-router-dom';
 
 import '../../styles/layout/header.scss';
 
-// Icons
-
 import { IoSearchSharp } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa6";
+// import { FaRegHeart } from "react-icons/fa6";
 
 
 const Header = () => {
@@ -44,12 +42,26 @@ const Header = () => {
 
                 <div className='headerContent'>
                     <nav className={`headerNav ${menuMobileActive ? 'menuMobileActive' : ''}`}>
-                        <ul>
+                        <ul className='headerList'>
+                            <li>Filmes</li>
+
+                            <li>
+                                <Link to='/'>Populares</Link>
+                                
+                            </li>
+                            <li>
+                                <Link to='/now-showing'>Em cartaz</Link>
+                            </li>
+                            <li>
+                                <Link to='/top-rated'>Melhores</Link>
+                            </li>
+
                             <li>
                                 Minha lista
-                                <FaRegHeart />
+                                {/* <FaRegHeart /> */}
                             </li>
                         </ul>
+
                         <div className="containerSearchBar">
                             <input
                                 type="checkbox"

@@ -28,7 +28,7 @@
         background-color: rgb(18, 16, 34);
         border-radius: 2rem 0 0 2rem;
         position: absolute;
-        transform: translateY(13rem);
+        transform: translateY(17rem);
         right: 0;
         width: 0;
         padding: 0;
@@ -45,10 +45,20 @@
             background-color: transparent;
             display: flex;
             align-items: center;
-            flex-direction: row-reverse;
-            gap: 7rem;
+            gap: 8rem;
             opacity: 100;
             width: max-content;
+        }
+
+        .headerList {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            
+            @include media.laptops {
+                flex-direction: row;
+                gap: 4rem;
+            }
         }
 
         li {
@@ -69,7 +79,7 @@
 
     @media (width <=992px) {
         .menuMobileActive {
-            transform: translateY(13rem);
+            transform: translateY(17rem);
             width: 29rem;
             opacity: 100;
         }
@@ -103,33 +113,39 @@
             transition: all 0.3s ease;
 
             @include media.tablets {
-                background-color: rgba(18, 16, 34, 0.842);
+                background-color: rgba(38, 35, 65, 0.842);
+            }
+
+            @include media.laptops {
+                width: 25rem;
+                justify-content: space-between;
+                padding: 0 2rem;
             }
         }
 
-        @media (width >=992px) {
-            .inputCheckbox:focus {
-                border: none;
-                outline: none;
-            }
+        // @media (width <= 992px) {
+        //     .inputCheckbox:focus {
+        //         border: none;
+        //         outline: none;
+        //     }
 
-            .inputCheckbox:checked {
-                right: 1rem;
-            }
+        //     .inputCheckbox:checked {
+        //         right: 1rem;
+        //     }
 
-            .inputCheckbox:checked~.mainBox {
-                width: 5rem;
-            }
+        //     .inputCheckbox:checked~.mainBox {
+        //         width: 5rem;
+        //     }
 
-            .inputCheckbox:checked~.mainBox .searchInput {
-                width: 0;
-                height: 0px;
-            }
+        //     .inputCheckbox:checked~.mainBox .searchInput {
+        //         width: 0;
+        //         height: 0px;wing
+        //     }
 
-            .inputCheckbox:checked~.mainBox .iconContainer {
-                padding-right: .8rem;
-            }
-        }
+        //     .inputCheckbox:checked~.mainBox .iconContainer {
+        //         padding-right: .8rem;
+        //     }
+        // }
 
         .inputCheckbox {
             box-sizing: border-box;
