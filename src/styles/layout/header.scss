@@ -88,7 +88,7 @@
         opacity: 0;
         transition: all .5s;
         transform: translateY(-3rem);
-        z-index: 5;
+        pointer-events: none;
 
         .dropdownItem {
             transition: all .3s;
@@ -110,6 +110,7 @@
         opacity: 1;
         transform: translateY(0);
         padding-right: 0;
+        pointer-events: all;
     }
 
     @media (width <=992px) {
