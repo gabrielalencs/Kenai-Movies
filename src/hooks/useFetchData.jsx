@@ -2,21 +2,26 @@ import { useState, useEffect } from "react";
 
 const useFetchData = (endpoint) => {
 
-    const [favoriteMoviesList, setFavoriteMoviesList] = useState([]);
+    const [moviesList, setMoviesList] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const getFavoriteMoviesList = async () => {
+        const getMoviesList = async () => {
+
+            setLoading(true);
+
             const data = await fetch(endpoint);
             const response = await data.json();
 
-            setFavoriteMoviesList(response);
+            setLoading(false);
+            setMoviesList(response);
         };
 
-        getFavoriteMoviesList();
+        getMoviesList();
     }, [endpoint]);
+    
 
-    return favoriteMoviesList
-
+    return { moviesList, loading };
 };
 
 export default useFetchData;

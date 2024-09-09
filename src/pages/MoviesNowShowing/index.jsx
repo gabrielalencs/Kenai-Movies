@@ -13,6 +13,7 @@ const MoviesNowShowing = () => {
     const titleMoviesNowShowing = categoryInformation[1].title;
     const listMoviesNowShowing = categoryInformation[1].fetchMovieList();
     
+    
     return (
         <ListFilms 
             title={titleMoviesNowShowing} 

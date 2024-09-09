@@ -232,22 +232,30 @@
 
     // container search films
 
+    .openSearchBar {
+        opacity: 100 !important;
+        height: 27rem !important;
+        pointer-events: all !important;
+    }
+
     .containerSearchBarFilms {
         background-color: rgb(22, 20, 43);
-        // background-color: color.$blue-10;
         border-radius: 1rem;
         position: absolute;
         width: 100%;
         padding: 2rem;
-        height: 27rem;
         overflow-y: scroll;
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: all .3s;
 
         &::-webkit-scrollbar {
             width: 1rem;
         }
 
         &::-webkit-scrollbar-track {
-            
+
             background-color: rgb(19, 17, 37);
         }
 
@@ -273,6 +281,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 4rem;
         }
 
         .filmContent {
@@ -297,7 +306,38 @@
             color: color.$white;
             font-weight: 500;
         }
+
+        .iconNoPoster {
+            font-size: 4rem;
+            color: color.$white;
+        }
+
+        .containerLoadingIcon {
+            height: 15rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .loadingIcon {
+            font-size: 4rem;
+            color: color.$white;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+    
+            to {
+                transform: rotate(360deg);
+            }
+        }
     }
+
+  
 
     // button mobile
 

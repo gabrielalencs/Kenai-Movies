@@ -1,18 +1,24 @@
+// React
+
 import { useCallback, useEffect, useState, useRef } from 'react';
 
-import { Link } from 'react-router-dom';
+// Styles
 
 import '../../styles/layout/header.scss';
 
-import { IoSearchSharp } from "react-icons/io5";
-// import { FaRegHeart } from "react-icons/fa6";
+// React Router
+
+import { Link } from 'react-router-dom';
+
+// Components
+
+import SearchBar from '../SearchBar';
 
 
 const Header = () => {
 
     const menuDropdownRef = useRef(null);
 
-    const [openSearchBar, setOpenSearchBar] = useState(true);
     const [menuMobileActive, setMenuMobileActive] = useState(false);
     const [menuDropdownActive, setMenuDropdownActive] = useState(false);
 
@@ -53,6 +59,7 @@ const Header = () => {
     }, [menuMobileActive]);
 
 
+
     return (
         <header className='header'>
             <div className="container">
@@ -79,95 +86,8 @@ const Header = () => {
                                 Minha lista
                             </li>
                         </ul>
-
-                        <div className="containerSearchBar">
-                            <input
-                                type="checkbox"
-                                className="inputCheckbox"
-                                checked={openSearchBar}
-                                onChange={() => setOpenSearchBar(!openSearchBar)}
-                            />
-
-                            <div className="mainBox">
-                                <div className="iconContainer">
-                                    <IoSearchSharp className="searchIcon" />
-                                </div>
-                                <input
-                                    type="text"
-                                    className="searchInput"
-                                    placeholder="Search"
-                                />
-                            </div>
-
-                            <div className='containerSearchBarFilms'>
-                                <h3 className='mainTitle'>Filmes</h3>
-
-                                <div className='containerFilms'>
-                                    <div className='film'>
-                                        <div className='filmContent'>
-                                            <div className='filmImage'>
-                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
-                                            </div>
-
-                                            <div className='filmTitle'>
-                                                <h4>Por àgua abaixo</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='releaseDate'>
-                                            <span>2006</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className='film'>
-                                        <div className='filmContent'>
-                                            <div className='filmImage'>
-                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
-                                            </div>
-
-                                            <div className='filmTitle'>
-                                                <h4>Por àgua abaixo</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='releaseDate'>
-                                            <span>2006</span>
-                                        </div>
-                                    </div>
-
-                                    <div className='film'>
-                                        <div className='filmContent'>
-                                            <div className='filmImage'>
-                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
-                                            </div>
-
-                                            <div className='filmTitle'>
-                                                <h4>Por àgua abaixo</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='releaseDate'>
-                                            <span>2006</span>
-                                        </div>
-                                    </div>
-                                    <div className='film'>
-                                        <div className='filmContent'>
-                                            <div className='filmImage'>
-                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
-                                            </div>
-
-                                            <div className='filmTitle'>
-                                                <h4>Por àgua abaixo</h4>
-                                            </div>
-                                        </div>
-
-                                        <div className='releaseDate'>
-                                            <span>2006</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
+                        <SearchBar />
                     </nav>
 
                     <div className='headerButtonMobile'>
