@@ -143,17 +143,19 @@
             flex-direction: row-reverse;
             align-items: center;
             justify-content: center;
-            border-radius: 16rem;
+            border-radius: 1rem;
             background-color: rgba(27, 24, 46, 0.904);
+            background-color: rgb(26, 24, 49);
             // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
             transition: all 0.3s ease;
 
             @include media.tablets {
-                background-color: rgba(38, 35, 65, 0.842);
+                // background-color: rgba(38, 35, 65, 0.842);
+                background-color: rgb(26, 24, 49);
             }
 
             @include media.laptops {
-                width: 25rem;
+                width: 30rem;
                 justify-content: space-between;
                 padding: 0 2rem;
             }
@@ -225,6 +227,75 @@
             box-sizing: border-box;
             fill: white;
             font-size: 2.5rem;
+        }
+    }
+
+    // container search films
+
+    .containerSearchBarFilms {
+        background-color: rgb(22, 20, 43);
+        // background-color: color.$blue-10;
+        border-radius: 1rem;
+        position: absolute;
+        width: 100%;
+        padding: 2rem;
+        height: 27rem;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 1rem;
+        }
+
+        &::-webkit-scrollbar-track {
+            
+            background-color: rgb(19, 17, 37);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: white;
+        }
+
+        .mainTitle {
+            font-size: 2rem;
+            color: white;
+            border-bottom: 2px solid rgb(29, 26, 49);
+            padding-bottom: 1.5rem;
+        }
+
+        .containerFilms {
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .film {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filmContent {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .filmTitle h4 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: color.$white;
+        }
+
+        .filmImage img {
+            width: 4rem;
+            border-radius: .5rem;
+        }
+
+        .releaseDate {
+            font-size: 1.4rem;
+            color: color.$white;
+            font-weight: 500;
         }
     }
 

@@ -6,10 +6,10 @@ const useFetchData = (endpoint) => {
 
     useEffect(() => {
         const getFavoriteMoviesList = async () => {
-            const data = await fetch('https://api.themoviedb.org/3/movie/' + endpoint + '?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
+            const data = await fetch(endpoint);
             const response = await data.json();
 
-            setFavoriteMoviesList(response.results);
+            setFavoriteMoviesList(response);
         };
 
         getFavoriteMoviesList();

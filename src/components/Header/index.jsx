@@ -98,6 +98,75 @@ const Header = () => {
                                     placeholder="Search"
                                 />
                             </div>
+
+                            <div className='containerSearchBarFilms'>
+                                <h3 className='mainTitle'>Filmes</h3>
+
+                                <div className='containerFilms'>
+                                    <div className='film'>
+                                        <div className='filmContent'>
+                                            <div className='filmImage'>
+                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
+                                            </div>
+
+                                            <div className='filmTitle'>
+                                                <h4>Por àgua abaixo</h4>
+                                            </div>
+                                        </div>
+
+                                        <div className='releaseDate'>
+                                            <span>2006</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className='film'>
+                                        <div className='filmContent'>
+                                            <div className='filmImage'>
+                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
+                                            </div>
+
+                                            <div className='filmTitle'>
+                                                <h4>Por àgua abaixo</h4>
+                                            </div>
+                                        </div>
+
+                                        <div className='releaseDate'>
+                                            <span>2006</span>
+                                        </div>
+                                    </div>
+
+                                    <div className='film'>
+                                        <div className='filmContent'>
+                                            <div className='filmImage'>
+                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
+                                            </div>
+
+                                            <div className='filmTitle'>
+                                                <h4>Por àgua abaixo</h4>
+                                            </div>
+                                        </div>
+
+                                        <div className='releaseDate'>
+                                            <span>2006</span>
+                                        </div>
+                                    </div>
+                                    <div className='film'>
+                                        <div className='filmContent'>
+                                            <div className='filmImage'>
+                                                <img src="https://image.tmdb.org/t/p/w500//xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="" />
+                                            </div>
+
+                                            <div className='filmTitle'>
+                                                <h4>Por àgua abaixo</h4>
+                                            </div>
+                                        </div>
+
+                                        <div className='releaseDate'>
+                                            <span>2006</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </nav>
 

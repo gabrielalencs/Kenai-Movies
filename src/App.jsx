@@ -29,7 +29,6 @@ function App() {
 
             <BrowserRouter>
                 <Header />
-
                 <CategoryInformationProvider>
                     <Routes>
                         <Route path='/' element={<PopularMovies />} />

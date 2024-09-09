@@ -4,6 +4,9 @@ import { FaStar } from "react-icons/fa6";
 
 
 const ListFilms = ({ title, listFilms }) => {
+
+    const listFilmsResponse = listFilms.results;  
+    
     return (
         <section className='listFilmsContainer container fadeInUp'>
             <h2 className='listFilmsTitle'>
@@ -12,7 +15,7 @@ const ListFilms = ({ title, listFilms }) => {
 
             <div className='listFilmsGrid '>
                 {
-                    listFilms.map(favoriteMovie => (
+                    listFilmsResponse && listFilmsResponse.map(favoriteMovie => (
                         <div className='filmContainer fade' key={favoriteMovie.id}>
                             <div className='filmContainerImage'>
                                 <img src={`https://image.tmdb.org/t/p/w500/${favoriteMovie.poster_path}`} />
