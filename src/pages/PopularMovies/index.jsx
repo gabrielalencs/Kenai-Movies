@@ -1,8 +1,15 @@
-import { useContext } from 'react'
+// React
+
+import { useContext } from 'react';
+
+// Context
 
 import { CategoryInformationContext } from '../../context/CategoryInformationContext';
 
+// Component
+
 import ListFilms from '../../components/ListFilms';
+
 
 const PopularMovies = () => {
 

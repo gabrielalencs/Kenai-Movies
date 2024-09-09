@@ -2,6 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Styles
+
+import '../../styles/layout/searchBar.scss';
+
 // React Icons
 
 import { IoSearchSharp } from "react-icons/io5";
