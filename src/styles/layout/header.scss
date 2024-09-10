@@ -89,6 +89,7 @@
         transition: all .5s;
         transform: translateY(-3rem);
         pointer-events: none;
+        z-index: 10;
 
         .dropdownItem {
             transition: all .3s;

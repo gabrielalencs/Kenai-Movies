@@ -20,6 +20,7 @@ import useFetchData from '../../hooks/useFetchData';
 const SearchBar = () => {
 
     const containerSearchBarRef = useRef(null);
+    const containerListFilms = useRef(null);
 
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [searchInputValue, setSearchInputValue] = useState('');
@@ -65,14 +66,16 @@ const SearchBar = () => {
 
                 <div className={`containerSearchBarFilms ${openSearchBar ? 'openSearchBar' : ''}`}>
                     <h3 className='mainTitle'>Filmes</h3>
-                    <div className='containerFilms'>
+                    <div className='containerFilms' ref={containerListFilms}>
                         {
                             loading && (<div className='containerLoadingIcon'><AiOutlineLoading3Quarters className='loadingIcon' /></div>)
                         }
 
                         {
                             searchedMovieResults && searchedMovieResults.map(movie => (
-                                <div className='film' key={movie.id}>
+                                <div 
+                                    className='film' 
+                                    key={movie.id}>
                                     <div className='filmContent'>
                                         <div className='filmImage skeleton'>
                                             {
