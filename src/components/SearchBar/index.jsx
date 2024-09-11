@@ -34,6 +34,7 @@ const SearchBar = () => {
             if (containerSearchBarRef.current && !containerSearchBarRef.current.contains(e.target)) {
                 setOpenSearchBar(false);
                 document.querySelector('body').classList.remove('openSearchBar');
+                setSearchInputValue('')
             }
         });
     }, [openSearchBar]);

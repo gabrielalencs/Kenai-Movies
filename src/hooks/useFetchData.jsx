@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 const useFetchData = (endpoint) => {
 
@@ -7,7 +7,6 @@ const useFetchData = (endpoint) => {
 
     useEffect(() => {
         const getMoviesList = async () => {
-
             setLoading(true);
 
             const data = await fetch(endpoint);

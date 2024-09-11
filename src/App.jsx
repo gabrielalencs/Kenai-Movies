@@ -19,6 +19,7 @@ import Header from './components/Header';
 import PopularMovies from "./pages/PopularMovies";
 import BestMovies from "./pages/BestMovies";
 import MoviesNowShowing from "./pages/MoviesNowShowing";
+import MovieInformation from "./pages/MovieInformation";
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                         <Route path='/' element={<PopularMovies />} />
                         <Route path='/now-showing' element={<MoviesNowShowing />} />
                         <Route path='/top-rated' element={<BestMovies />} />
+                        <Route path='/movie/:id' element={<MovieInformation />} />
                     </Routes>
                 </CategoryInformationProvider>
             </BrowserRouter>

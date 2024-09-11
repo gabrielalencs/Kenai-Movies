@@ -1,3 +1,11 @@
+// React
+
+import { useEffect, useState } from 'react';
+
+// React Router
+
+import { Link, useNavigate } from 'react-router-dom';
+
 // Styles
 
 import '../../styles/layout/listFilms.scss';
@@ -6,11 +14,40 @@ import '../../styles/layout/listFilms.scss';
 
 import { FaStar } from "react-icons/fa6";
 
+// Hook
+
+import useFetchData from '../../hooks/useFetchData';
+
 
 const ListFilms = ({ title, listFilms }) => {
 
-    const listFilmsResponse = listFilms.results;  
-    
+    const [selectedMovieInformation, setSelectedMovieInformation] = useState(null);
+    const navigate = useNavigate();
+
+    const listFilmsResponse = listFilms.results;
+
+
+    const handleMovieClick = (movie) => {
+        setSelectedMovieInformation(movie);
+    };
+
+
+    useEffect(() => {
+        if (selectedMovieInformation) {
+
+            const fetchData = async () => {
+                const data = await fetch(`https://api.themoviedb.org/3/movie/${selectedMovieInformation.id}?api_key=071bb306893009d6309f4184450837f3&language=pt-BR`);
+                const infoMovie = await data.json();
+
+
+                navigate(`/movie/${selectedMovieInformation.id}`, { state: { infoMovie } });
+            };
+            
+            fetchData();
+        }
+    }, [selectedMovieInformation]);
+
+
     return (
         <section className='listFilmsContainer container fadeInUp'>
             <h2 className='listFilmsTitle'>
@@ -19,35 +56,35 @@ const ListFilms = ({ title, listFilms }) => {
 
             <div className='listFilmsGrid'>
                 {
-                    listFilmsResponse && listFilmsResponse.map(favoriteMovie => (
-                        <div className='filmContainer fade' key={favoriteMovie.id}>
+                    listFilmsResponse && listFilmsResponse.map(movie => (
+                        <div className='filmContainer fade' key={movie.id}>
                             <div className='filmContainerImage'>
-                                <img src={`https://image.tmdb.org/t/p/w500/${favoriteMovie.poster_path}`} />
+                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
                             </div>
 
                             <div className='filmContainerMainTitle'>
                                 <span className='mainTitle'>
-                                    {favoriteMovie.title}
+                                    {movie.title}
                                 </span>
 
                                 <span className='averageTitle'>
                                     <FaStar />
-                                    {favoriteMovie.vote_average.toFixed(1)}
+                                    {movie.vote_average.toFixed(1)}
                                 </span>
                             </div>
 
                             <div className='filmContainerMoreInformation'>
                                 <span className='mainTitle'>
-                                    {favoriteMovie.title}
+                                    {movie.title}
                                 </span>
 
                                 <p className='moreInformationDescription'>
                                     {
-                                        favoriteMovie.overview !== '' ? favoriteMovie.overview : 'Sem Sinopse'
+                                        movie.overview !== '' ? movie.overview : 'Sem Sinopse'
                                     }
                                 </p>
 
-                                <button className='btnSeeMore'>Ver Mais</button>
+                                <button className='btnSeeMore' onClick={() => handleMovieClick(movie)}>Ver Mais</button>
                             </div>
 
                             <div className='filmContainerBackdrop'></div>
