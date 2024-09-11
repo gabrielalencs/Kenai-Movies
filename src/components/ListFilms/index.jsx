@@ -34,15 +34,13 @@ const ListFilms = ({ title, listFilms }) => {
 
     useEffect(() => {
         if (selectedMovieInformation) {
-
             const fetchData = async () => {
                 const data = await fetch(`https://api.themoviedb.org/3/movie/${selectedMovieInformation.id}?api_key=071bb306893009d6309f4184450837f3&language=pt-BR`);
                 const infoMovie = await data.json();
 
-
                 navigate(`/movie/${selectedMovieInformation.id}`, { state: { infoMovie } });
             };
-            
+
             fetchData();
         }
     }, [selectedMovieInformation]);
