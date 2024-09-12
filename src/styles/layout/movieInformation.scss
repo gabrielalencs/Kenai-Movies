@@ -20,13 +20,17 @@
                 flex-direction: row;
                 // align-items: center;
                 // justify-content: center;
-                gap: 3rem;
-                padding: 6rem 3rem 0;
+                gap: 8rem;
+                padding: 6rem 4rem 4rem;
             }
         }
 
         .movieInformationImage {
             text-align: center;
+
+            @include media.laptops {
+                text-align: left;
+            }
 
             img {
                 width: 70%;
@@ -34,10 +38,10 @@
                 border-radius: 1rem;
 
                 @include media.laptops {
-                    width: 80%;
+                    width: 100%;
                     max-width: 100%;
-                    position: relative;
-                    top: 3rem;
+                    // position: relative;
+                    // top: 3rem;
                 }
             }
         }
@@ -49,8 +53,14 @@
 
             @include media.laptops {
                 margin: 0;
-                position: relative;
-                top: 3rem;
+                // max-width: 100%;
+                // position: relative;
+                // top: 3rem;
+            }
+
+            @include media.desktops {
+                max-width: 70rem;
+
             }
         }
 
@@ -73,18 +83,20 @@
         }
 
         .movieOtherInformation {
-            margin-top: 2.5rem;
+            margin-top: 4rem;
             font-size: 1.6rem;
             display: flex;
             flex-direction: column;
-            gap: .5rem;
+            gap: 1.5rem;
 
             @include media.tablets {
-                gap: 1rem;
+                gap: 2rem;
             }
 
-            @include media.laptops {
-                gap: 2rem;
+            @include media.desktops {
+                gap: 2.5rem;
+                flex-direction: row;
+                // flex-wrap: wrap;
             }
 
             p {
@@ -97,7 +109,7 @@
         }
 
         .movieGenre {
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             display: flex;
             gap: 1rem;
             font-size: 1.6rem;
@@ -111,7 +123,9 @@
             ul {
                 margin-top: 1rem;
                 display: flex;
-                gap: 2rem;
+                flex-wrap: wrap;
+                gap: 3rem;
+                row-gap: 1.5rem;
             }
 
             li {
@@ -125,7 +139,7 @@
         }
 
         .movieSynopsis {
-            margin-top: 3rem;
+            margin-top: 4rem;
 
             h4 {
                 font-size: 2rem;
@@ -135,6 +149,26 @@
                 margin-top: 1rem;
                 font-size: 1.5rem;
                 line-height: 2.7rem;
+            }
+        }
+
+        .movieDirection {
+            margin-top: 5rem;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 7rem;
+            row-gap: 4rem;
+
+            @include media.laptops {
+                width: 80%;
+            }
+            
+            .movieDirectionItem h4 {
+                font-size: 1.7rem;
+            }
+
+            .movieDirectionItem span {
+                font-size: 1.6rem;
             }
         }
     }

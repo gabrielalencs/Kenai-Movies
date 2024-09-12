@@ -35,6 +35,8 @@
         transition: all .6s;
         opacity: 0;
         padding: 3rem;
+        overflow: hidden;
+        z-index: 10;
 
         @include media.laptops {
             background-color: rgba(18, 16, 34, 0.842);

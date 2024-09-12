@@ -80,6 +80,33 @@ const MovieInformation = () => {
                                 {movieInformation.overview}
                             </p>
                         </div>
+
+                        <div className='movieDirection'>
+                            <div className='movieDirectionItem'>
+                                <h4>Kelsey Mann</h4>
+                                <span>Directing</span>
+                            </div>
+
+                            <div className='movieDirectionItem'>
+                                <h4>Kelsey Mann</h4>
+                                <span>Directing</span>
+                            </div>
+                            
+                            <div className='movieDirectionItem'>
+                                <h4>Kelsey Mann</h4>
+                                <span>Directing</span>
+                            </div>
+
+                            <div className='movieDirectionItem'>
+                                <h4>Kelsey Mann</h4>
+                                <span>Directing</span>
+                            </div>
+
+                            <div className='movieDirectionItem'>
+                                <h4>Kelsey Mann</h4>
+                                <span>Directing</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
