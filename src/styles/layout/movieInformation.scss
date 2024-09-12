@@ -1,0 +1,141 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/breakpoints' as media;
+
+.movieInformationContainer {
+    margin-bottom: 10rem;
+
+    .movieInformationHeader {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        .container {
+            padding: 7rem 3rem;
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+
+            @include media.laptops {
+                flex-direction: row;
+                // align-items: center;
+                // justify-content: center;
+                gap: 3rem;
+                padding: 6rem 3rem 0;
+            }
+        }
+
+        .movieInformationImage {
+            text-align: center;
+
+            img {
+                width: 70%;
+                max-width: 27rem;
+                border-radius: 1rem;
+
+                @include media.laptops {
+                    width: 85%;
+                    max-width: 100%;
+                    position: relative;
+                    top: 3rem;
+                }
+            }
+        }
+
+        .movieInformationMainInfos {
+            margin-top: 4rem;
+            max-width: 60rem;
+            margin: 4rem auto 0;
+
+            @include media.laptops {
+                margin: 0;
+                position: relative;
+                top: 3rem;
+            }
+        }
+
+        .movieTitle {
+            // display: flex;
+            // justify-content: space-between;
+            text-align: center;
+
+            @include media.laptops {
+                text-align: left;
+            }
+
+            h3 {
+                font-size: 2.7rem;
+
+                @include media.tablets {
+                    font-size: 3.3rem;
+                }
+            }
+        }
+
+        .movieOtherInformation {
+            margin-top: 2.5rem;
+            font-size: 1.6rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            @include media.tablets {
+                gap: 1rem;
+            }
+
+            @include media.laptops {
+                gap: 2rem;
+            }
+
+            p {
+                font-weight: 700;
+            }
+
+            span {
+                font-weight: normal;
+            }
+        }
+
+        .movieGenre {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            font-size: 1.6rem;
+
+            // @include media.laptops 
+
+            p {
+                font-weight: 700;
+            }
+
+            ul {
+                margin-top: 1rem;
+                display: flex;
+                gap: 2rem;
+            }
+
+            li {
+                font-weight: normal;
+                // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+                // padding: .7rem 2rem;
+                // display: grid;
+                // place-items: center;
+                // border-radius: 1rem;
+            }
+        }
+
+        .movieSynopsis {
+            margin-top: 3rem;
+
+            h4 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin-top: 1rem;
+                font-size: 1.5rem;
+                line-height: 2.7rem;
+            }
+        }
+    }
+}
