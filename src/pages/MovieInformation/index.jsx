@@ -9,39 +9,67 @@ import { useLocation } from 'react-router-dom';
 
 const MovieInformation = () => {
 
-    // const location = useLocation();
-    // const movieInformation = location.state.infoMovie;
+    const location = useLocation();
+    const movieInformation = location.state.infoMovie;
 
-    // console.log(movieInformation);
+
+
+    const formatDate = (unformattedDate) => {
+        const partsDate = unformattedDate.split('-');
+
+        return `${partsDate[2]}/${partsDate[1]}/${partsDate[0]}`
+    };
+
+
+    const formatMovieLength = (minutes) => {
+        const hours = Math.floor(minutes / 60);
+        const minutesRemaining = minutes % 60;
+        return `${hours}h ${minutesRemaining}m`;
+    };
 
 
     return (
         <section className='movieInformationContainer'>
-            <div className='movieInformationHeader'>
+            <div
+                className='movieInformationHeader fadeInUp'
+                style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/${movieInformation.backdrop_path})` }}
+            >
                 <div className="container">
                     <div className='movieInformationImage'>
-                        <img src="https://image.tmdb.org/t/p/w400/xq4v7JE8niZ75OYYPDGNn6Gzpyt.jpg" alt="poster do filme" />
+                        <img src={`https://image.tmdb.org/t/p/w500/${movieInformation.poster_path}`} alt="poster do filme" />
                     </div>
 
                     <div className='movieInformationMainInfos'>
                         <div className='movieTitle'>
-                            <h3>Deadpool & Wolverine</h3>
+                            <h3>{movieInformation.title}</h3>
+
                             {/* <span>coraçãozinho</span> */}
                         </div>
 
                         <div className='movieOtherInformation'>
-                            <p>Data de Lançamento: <span>24/07/2024</span></p>
-                            <p>Duração: <span>2h 8m</span></p>
-                            <p>Avaliação dos Usuários: <span>6.294%</span></p>
+                            <p>
+                                Data de Lançamento:
+                                <span> {formatDate(movieInformation.release_date)}</span>
+                            </p>
+                            <p>
+                                Duração:
+                                <span> {formatMovieLength(movieInformation.runtime)}</span>
+                            </p>
+                            <p>
+                                Avaliação dos Usuários:
+                                <span> {movieInformation.vote_average}%</span>
+                            </p>
                         </div>
 
                         <div className='movieGenre'>
                             <p>
                                 Gênero do Filme:
                                 <ul>
-                                    <li>Ação</li>
-                                    <li>Comédia</li>
-                                    <li>Ficção científica</li>
+                                    {
+                                        movieInformation.genres.map(genre => (
+                                            <li key={genre.id}>{genre.name}</li>
+                                        ))
+                                    }
                                 </ul>
                             </p>
                         </div>
@@ -49,7 +77,7 @@ const MovieInformation = () => {
                         <div className='movieSynopsis'>
                             <h4>Sinopse</h4>
                             <p>
-                                Um apático Wade Wilson trabalha duro na vida civil. Seus dias como mercenário moralmente flexível, Deadpool, ficou para trás. Quando seu planeta enfrenta uma ameaça, Wade deve relutantemente vestir-se novamente com um ainda mais relutante... relutante? Mais relutante? Ele deve convencer um Wolverine.
+                                {movieInformation.overview}
                             </p>
                         </div>
                     </div>

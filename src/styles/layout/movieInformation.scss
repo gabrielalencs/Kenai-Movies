@@ -5,10 +5,10 @@
     margin-bottom: 10rem;
 
     .movieInformationHeader {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        // background: linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg);
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
 
         .container {
             padding: 7rem 3rem;
@@ -34,7 +34,7 @@
                 border-radius: 1rem;
 
                 @include media.laptops {
-                    width: 85%;
+                    width: 80%;
                     max-width: 100%;
                     position: relative;
                     top: 3rem;
