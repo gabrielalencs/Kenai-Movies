@@ -20,9 +20,9 @@ const MovieInformation = () => {
 
     const filmDirection = movieInformation.credits.crew.slice(0, 6);
     const filmCast = movieInformation.credits.cast;
+    const filmCastWithPoster = filmCast?.filter(cast => cast.profile_path && cast.profile_path.trim() !== '');
     const keyToMovieTrailer = movieInformation.videos.results[0];
 
-    console.log(filmDirection);
 
 
     const formatDate = (unformattedDate) => {
@@ -127,25 +127,20 @@ const MovieInformation = () => {
                 <h3 className='castTitle'>Elenco Original</h3>
 
                 <div className='castContainer'>
-
-                    {filmCast.map(cast => {
-                        if (cast.profile_path) {
-                            return (
-                                <div className='cast' key={cast.id}>
-                                    <div className='castImage'>
-                                        <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
-                                    </div>
-
-                                    <div className='castContent'>
-                                        <h3>{cast.name}</h3>
-                                        <span>{cast.character}</span>
-                                    </div>
+                    {
+                        filmCastWithPoster.map(cast => (
+                            <div className='cast' key={cast.id}>
+                                <div className='castImage'>
+                                    <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
                                 </div>
-                            )
-                        } else {
-                            return null
-                        }
-                    })}
+
+                                <div className='castContent'>
+                                    <h3>{cast.name}</h3>
+                                    <span>{cast.character}</span>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
 
