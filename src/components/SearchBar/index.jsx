@@ -6,6 +6,10 @@ import { useEffect, useRef, useState } from "react";
 
 import '../../styles/layout/searchBar.scss';
 
+// React Router
+
+import { useNavigate } from "react-router-dom";
+
 // React Icons
 
 import { IoSearchSharp } from "react-icons/io5";
@@ -19,14 +23,31 @@ import useFetchData from '../../hooks/useFetchData';
 
 const SearchBar = () => {
 
+    const navigate = useNavigate();
+
     const containerSearchBarRef = useRef(null);
     const containerListFilms = useRef(null);
 
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [searchInputValue, setSearchInputValue] = useState('');
-
+    const [selectedMovieInformation, setSelectedMovieInformation] = useState(null);
+    
     let { moviesList: searchedMovie, loading } = useFetchData(`https://api.themoviedb.org/3/search/movie?query=${!searchInputValue ? 'Coringa' : searchInputValue}&api_key=071bb306893009d6309f4184450837f3&language=pt-BR`)
     let searchedMovieResults = searchedMovie.results;
+
+
+    useEffect(() => {
+        if (selectedMovieInformation) {
+            const fetchData = async () => {
+                const data = await fetch(`https://api.themoviedb.org/3/movie/${selectedMovieInformation.id}?api_key=071bb306893009d6309f4184450837f3&append_to_response=credits,videos,release_dates&language=pt-BR`);
+                const infoMovie = await data.json();
+
+                navigate(`/movie/${selectedMovieInformation.id}`, { state: { infoMovie } });
+            };
+
+            fetchData();
+        }
+    }, [selectedMovieInformation]);
 
 
     useEffect(() => {
@@ -40,6 +61,14 @@ const SearchBar = () => {
     }, [openSearchBar]);
 
     
+    const handleMovieClick = (movie) => {
+        setSelectedMovieInformation(movie);
+    };
+
+
+
+
+
     return (
         <>
             <div
@@ -75,7 +104,8 @@ const SearchBar = () => {
                         {
                             searchedMovieResults && searchedMovieResults.map(movie => (
                                 <div 
-                                    className='film' 
+                                    className='film'
+                                    onClick={() => handleMovieClick(movie)} 
                                     key={movie.id}>
                                     <div className='filmContent'>
                                         <div className='filmImage skeleton'>

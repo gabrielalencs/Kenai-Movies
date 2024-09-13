@@ -1,3 +1,7 @@
+// React
+
+import { useEffect, useState } from 'react';
+
 // Styles
 
 import '../../styles/layout/movieInformation.scss';
@@ -9,8 +13,13 @@ import { useLocation } from 'react-router-dom';
 
 const MovieInformation = () => {
 
+    const [isAnimationFadeInUp, setIsAnimationFadeInUp] = useState(false);
+
     const location = useLocation();
     const movieInformation = location.state.infoMovie;
+
+    const filmDirection = movieInformation.credits.crew.slice(0, 5);
+    const keyToMovieTrailer = movieInformation.videos.results[0];
 
 
 
@@ -28,10 +37,14 @@ const MovieInformation = () => {
     };
 
 
+    useEffect(() => window.scrollTo(0, 0), []);
+
+
+
     return (
         <section className='movieInformationContainer'>
             <div
-                className='movieInformationHeader fadeInUp'
+                className={`movieInformationHeader ${isAnimationFadeInUp ? 'fadeInUp' : ''}`}
                 style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/${movieInformation.backdrop_path})` }}
             >
                 <div className="container">
@@ -75,47 +88,31 @@ const MovieInformation = () => {
                         <div className='movieSynopsis'>
                             <h4>Sinopse</h4>
                             <p>
-                                {movieInformation.overview}
+                                {!movieInformation.overview ? 'Filme sem sinopse' : movieInformation.overview}
                             </p>
                         </div>
 
                         <div className='movieDirection'>
-                            <div className='movieDirectionItem'>
-                                <h4>Kelsey Mann</h4>
-                                <span>Directing</span>
-                            </div>
-
-                            <div className='movieDirectionItem'>
-                                <h4>Kelsey Mann</h4>
-                                <span>Directing</span>
-                            </div>
-
-                            <div className='movieDirectionItem'>
-                                <h4>Kelsey Mann</h4>
-                                <span>Directing</span>
-                            </div>
-
-                            <div className='movieDirectionItem'>
-                                <h4>Kelsey Mann</h4>
-                                <span>Directing</span>
-                            </div>
-
-                            <div className='movieDirectionItem'>
-                                <h4>Kelsey Mann</h4>
-                                <span>Directing</span>
-                            </div>
+                            {
+                                filmDirection.map(crewItem => (
+                                    <div className='movieDirectionItem' key={crewItem.id}>
+                                        <h4>{crewItem.name}</h4>
+                                        <span>{crewItem.known_for_department}</span>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>
             </div>
 
             {
-                movieInformation.videos.results[0] &&
+                keyToMovieTrailer &&
                 (<div className='trailerMovieContainer container'>
                     <h3 className='trailerTitle'>Trailer</h3>
 
                     <div className='trailerContainer'>
-                        <iframe  src={`https://www.youtube.com/embed/${movieInformation.videos.results[0].key}?controls=0?autoplay=1`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                        <iframe src={`https://www.youtube.com/embed/${keyToMovieTrailer.key}?controls=0?autoplay=1`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                     </div>
                 </div>)
             }

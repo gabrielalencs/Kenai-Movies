@@ -14,10 +14,6 @@ import '../../styles/layout/listFilms.scss';
 
 import { FaStar } from "react-icons/fa6";
 
-// Hook
-
-import useFetchData from '../../hooks/useFetchData';
-
 
 const ListFilms = ({ title, listFilms }) => {
 
