@@ -35,7 +35,6 @@
         transition: all .6s;
         opacity: 0;
         padding: 3rem;
-        overflow: hidden;
         z-index: 10;
 
         @include media.laptops {

@@ -11,7 +11,7 @@
         background-repeat: no-repeat !important;
 
         .container {
-            padding: 7rem 3rem;
+            padding: 7rem 4rem;
             display: flex;
             flex-direction: column;
             color: #fff;
@@ -110,8 +110,6 @@
 
         .movieGenre {
             margin-top: 3rem;
-            display: flex;
-            gap: 1rem;
             font-size: 1.6rem;
 
             // @include media.laptops 
@@ -162,13 +160,44 @@
             @include media.laptops {
                 width: 80%;
             }
-            
+
             .movieDirectionItem h4 {
                 font-size: 1.7rem;
             }
 
             .movieDirectionItem span {
                 font-size: 1.6rem;
+            }
+        }
+    }
+
+    .trailerMovieContainer {
+        margin-top: 10rem;
+        padding: 0 4rem;
+
+        .trailerTitle {
+            font-size: 3rem;
+            background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: max-content;
+        }
+
+        .trailerContainer {
+            margin-top: 3rem;
+
+            iframe {
+                width: 100%;
+                max-width: 80rem;
+                height: 25rem;
+
+                @include media.tablets {
+                    height: 40rem;
+                }
+
+                @include media.laptops {
+                    height: 45rem;
+                }
             }
         }
     }

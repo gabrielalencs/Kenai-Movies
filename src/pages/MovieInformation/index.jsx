@@ -62,16 +62,14 @@ const MovieInformation = () => {
                         </div>
 
                         <div className='movieGenre'>
-                            <p>
-                                Gênero do Filme:
-                                <ul>
-                                    {
-                                        movieInformation.genres.map(genre => (
-                                            <li key={genre.id}>{genre.name}</li>
-                                        ))
-                                    }
-                                </ul>
-                            </p>
+                            <p>Gênero do Filme: </p>
+                            <ul>
+                                {
+                                    movieInformation.genres.map(genre => (
+                                        <li key={genre.id}>{genre.name}</li>
+                                    ))
+                                }
+                            </ul>
                         </div>
 
                         <div className='movieSynopsis'>
@@ -91,7 +89,7 @@ const MovieInformation = () => {
                                 <h4>Kelsey Mann</h4>
                                 <span>Directing</span>
                             </div>
-                            
+
                             <div className='movieDirectionItem'>
                                 <h4>Kelsey Mann</h4>
                                 <span>Directing</span>
@@ -110,6 +108,17 @@ const MovieInformation = () => {
                     </div>
                 </div>
             </div>
+
+            {
+                movieInformation.videos.results[0] &&
+                (<div className='trailerMovieContainer container'>
+                    <h3 className='trailerTitle'>Trailer</h3>
+
+                    <div className='trailerContainer'>
+                        <iframe  src={`https://www.youtube.com/embed/${movieInformation.videos.results[0].key}?controls=0?autoplay=1`} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    </div>
+                </div>)
+            }
         </section>
     )
 }
