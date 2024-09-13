@@ -31,9 +31,10 @@ const SearchBar = () => {
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [searchInputValue, setSearchInputValue] = useState('');
     const [selectedMovieInformation, setSelectedMovieInformation] = useState(null);
-    
+
     let { moviesList: searchedMovie, loading } = useFetchData(`https://api.themoviedb.org/3/search/movie?query=${!searchInputValue ? 'Coringa' : searchInputValue}&api_key=071bb306893009d6309f4184450837f3&language=pt-BR`)
     let searchedMovieResults = searchedMovie.results;
+    let moviesWithPoster = searchedMovieResults?.filter(movie => movie.poster_path && movie.poster_path.trim() !== '');
 
 
     useEffect(() => {
@@ -55,17 +56,16 @@ const SearchBar = () => {
             if (containerSearchBarRef.current && !containerSearchBarRef.current.contains(e.target)) {
                 setOpenSearchBar(false);
                 document.querySelector('body').classList.remove('openSearchBar');
-                setSearchInputValue('')
+                setSearchInputValue('');
             }
         });
     }, [openSearchBar]);
 
-    
+
     const handleMovieClick = (movie) => {
         setSelectedMovieInformation(movie);
+        setSearchInputValue('');
     };
-
-
 
 
 
@@ -102,31 +102,33 @@ const SearchBar = () => {
                         }
 
                         {
-                            searchedMovieResults && searchedMovieResults.map(movie => (
-                                <div 
-                                    className='film'
-                                    onClick={() => handleMovieClick(movie)} 
-                                    key={movie.id}>
-                                    <div className='filmContent'>
-                                        <div className='filmImage skeleton'>
-                                            {
-                                                movie.poster_path
-                                                    ? (<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="poster filme" />)
-                                                    : <MdImageNotSupported className='iconNoPoster' />
-                                            }
+                            moviesWithPoster && moviesWithPoster.length > 0 ? (
+                                moviesWithPoster.map(movie => (
+                                    <div
+                                        className='film'
+                                        onClick={() => handleMovieClick(movie)}
+                                        key={movie.id}>
+                                        <div className='filmContent'>
+                                            <div className='filmImage skeleton'>
+                                                {
+                                                    movie.poster_path
+                                                        ? (<img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="poster filme" />)
+                                                        : <MdImageNotSupported className='iconNoPoster' />
+                                                }
+                                            </div>
+                                            <div className='filmTitle'>
+                                                <h4>{movie.title}</h4>
+                                            </div>
                                         </div>
-                                        <div className='filmTitle'>
-                                            <h4>{movie.title}</h4>
-                                        </div>
-                                    </div>
 
-                                    <div className='releaseDate'>
-                                        <span>
-                                            {movie.release_date.slice(0, 4)}
-                                        </span>
+                                        <div className='releaseDate'>
+                                            <span>
+                                                {movie.release_date.slice(0, 4)}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                            ))
+                                ))
+                            ) : (<p className="movieNotFound">Filme Não Encontrado</p>)
                         }
                     </div>
                 </div>

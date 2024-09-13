@@ -184,6 +184,11 @@
         animation: spin 1s linear infinite;
     }
 
+    .movieNotFound {
+        color: color.$white;
+        font-size: 1.7rem;
+    }
+
     @keyframes spin {
         from {
             transform: rotate(0deg);

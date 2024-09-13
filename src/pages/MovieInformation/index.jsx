@@ -1,6 +1,6 @@
 // React
 
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 // Styles
 
@@ -13,14 +13,16 @@ import { useLocation } from 'react-router-dom';
 
 const MovieInformation = () => {
 
-    const [isAnimationFadeInUp, setIsAnimationFadeInUp] = useState(false);
+    const [isAnimationFadeInUp, setIsAnimationFadeInUp] = useState(true);
 
     const location = useLocation();
     const movieInformation = location.state.infoMovie;
 
-    const filmDirection = movieInformation.credits.crew.slice(0, 5);
+    const filmDirection = movieInformation.credits.crew.slice(0, 6);
+    const filmCast = movieInformation.credits.cast;
     const keyToMovieTrailer = movieInformation.videos.results[0];
 
+    console.log(filmDirection);
 
 
     const formatDate = (unformattedDate) => {
@@ -38,6 +40,21 @@ const MovieInformation = () => {
 
 
     useEffect(() => window.scrollTo(0, 0), []);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsAnimationFadeInUp(false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, [movieInformation]);
+
+    useEffect(() => {
+
+        setIsAnimationFadeInUp(true);
+
+
+    }, [movieInformation]);
 
 
 
@@ -106,9 +123,35 @@ const MovieInformation = () => {
                 </div>
             </div>
 
+            <div className={`filmCastContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`} >
+                <h3 className='castTitle'>Elenco Original</h3>
+
+                <div className='castContainer'>
+
+                    {filmCast.map(cast => {
+                        if (cast.profile_path) {
+                            return (
+                                <div className='cast' key={cast.id}>
+                                    <div className='castImage'>
+                                        <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
+                                    </div>
+
+                                    <div className='castContent'>
+                                        <h3>{cast.name}</h3>
+                                        <span>{cast.character}</span>
+                                    </div>
+                                </div>
+                            )
+                        } else {
+                            return null
+                        }
+                    })}
+                </div>
+            </div>
+
             {
                 keyToMovieTrailer &&
-                (<div className='trailerMovieContainer container'>
+                (<div className={`trailerMovieContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`}>
                     <h3 className='trailerTitle'>Trailer</h3>
 
                     <div className='trailerContainer'>
