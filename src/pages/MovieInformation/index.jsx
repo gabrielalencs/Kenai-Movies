@@ -166,7 +166,7 @@ const MovieInformation = () => {
                         <div className='movieDirection'>
                             {
                                 filmDirection.map(crewItem => (
-                                    <div className='movieDirectionItem' key={crewItem.id}>
+                                    <div className='movieDirectionItem' key={crewItem.id + Math.random() * 10}>
                                         <h4>{crewItem.name}</h4>
                                         <span>{crewItem.known_for_department}</span>
                                     </div>

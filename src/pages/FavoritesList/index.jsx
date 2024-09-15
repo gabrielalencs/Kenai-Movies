@@ -6,6 +6,11 @@ import { useContext } from 'react';
 
 import '../../styles/layout/favoriteList.scss';
 
+// React Router
+
+import { useNavigate } from 'react-router-dom';
+
+
 // Context
 
 import { FavoriteListContext } from '../../context/FavoriteListContext';
@@ -14,9 +19,16 @@ import { FavoriteListContext } from '../../context/FavoriteListContext';
 const FavoritesList = () => {
 
     const { favoriteMoviesList } = useContext(FavoriteListContext);
+    const navigate = useNavigate();
 
-    const openMovieInformation = () => {
-        
+
+    const openMovieInformation = async (favoriteMovie) => {
+
+        const data = await fetch(`https://api.themoviedb.org/3/movie/${favoriteMovie.id}?api_key=071bb306893009d6309f4184450837f3&append_to_response=credits,videos,release_dates&language=pt-BR`);
+        const infoMovie = await data.json();
+
+        navigate(`/movie/${favoriteMovie.id}`, { state: { infoMovie } });
+
     }
 
 
@@ -31,7 +43,11 @@ const FavoritesList = () => {
                     favoriteMoviesList.length > 0 ? (favoriteMoviesList.map(favoriteMovie => (
                         <div key={favoriteMovie.id} className="favoriteMovie">
                             <div className='favoriteMovieImage'>
-                                <img src={`https://image.tmdb.org/t/p/w500/${favoriteMovie.poster_path}`} alt="poster do filme" />
+                                <img 
+                                    src={`https://image.tmdb.org/t/p/w500/${favoriteMovie.poster_path}`} 
+                                    alt="poster do filme" 
+                                    onClick={() => openMovieInformation(favoriteMovie)}
+                                />
                             </div>
 
                             <div className='favoriteMovieTitles'>
