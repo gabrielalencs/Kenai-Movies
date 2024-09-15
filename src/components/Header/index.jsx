@@ -81,9 +81,8 @@ const Header = () => {
                                     <Link to='/top-rated' className='dropdownItem'>Mais bem avaliados</Link>
                                 </ul>
                             </li>
-
                             <li className='listItem'>
-                                Minha lista
+                                <Link to='/favorites-list'>Minha lista</Link>
                             </li>
                         </ul>
                        

@@ -1,0 +1,93 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/breakpoints' as media;
+
+.favoriteListContainer {
+    margin-top: 10rem;
+    margin-bottom: 12rem;
+    padding: 0 4rem;
+
+    .favoriteListTitle {
+        font-size: 3rem;
+        color: color.$white;
+        margin: 0 auto;
+        width: max-content;
+        background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .favoriteListGrid {
+        margin-top: 8rem;
+        display: grid;
+        gap: 7rem;
+
+        @include media.tablets {
+            gap: 4rem;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        @include media.laptops {
+            column-gap: 1rem;
+            row-gap: 5rem;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        @include media.desktops {
+            column-gap: 3.2rem;
+            row-gap: 6rem;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+
+    .favoriteMovie {
+        max-width: 18rem;
+        margin: 0 auto;
+
+        .favoriteMovieImage {
+            overflow: hidden;
+            border-radius: 1rem;
+            transition: all .3s;
+            border: 2px solid transparent;
+
+            &:hover {
+                border: 2px solid #FF267A;
+            }
+
+            img {
+                width: 100%;
+                border-radius: 1rem;
+                cursor: pointer;
+                transition: all .3s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        .favoriteMovieTitles {
+            color: color.$white;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+        }
+
+        .mainTitle {
+            font-size: 1.7rem;
+            font-weight: 600;
+        }
+
+        .releaseDate {
+            font-size: 1.6rem;
+        }
+    }
+
+    .favoriteMovieEmptyMessage {
+        display: inline-block;
+        margin-top: 7rem;
+        font-size: 2.5rem;
+        color: color.$white;
+        position: relative;
+    }
+}

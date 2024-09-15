@@ -65,12 +65,14 @@
         }
 
         .movieTitle {
-            // display: flex;
-            // justify-content: space-between;
             text-align: center;
 
             @include media.laptops {
                 text-align: left;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 8rem;
             }
 
             h3 {
@@ -80,10 +82,77 @@
                     font-size: 3.3rem;
                 }
             }
+
+            .heartContainer input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+            }
+
+            .heartContainer {
+                display: block;
+                position: relative;
+                cursor: pointer;
+                font-size: 20px;
+                user-select: none;
+                transition: .3s;
+            }
+
+            .checkmark {
+                top: 0;
+                left: 0;
+                height: 2em;
+                width: 2em;
+                transition: .3s;
+                animation: dislike_effect 400ms ease;
+            }
+
+            .heartContainer input:checked~.checkmark path {
+                fill: #ff5353;
+                stroke-width: 0;
+            }
+
+            .heartContainer input:checked~.checkmark {
+                animation: like_effect 400ms ease;
+            }
+
+            .heartContainer:hover {
+                transform: scale(1.1);
+            }
+
+            @keyframes like_effect {
+                0% {
+                    transform: scale(0);
+                }
+
+                50% {
+                    transform: scale(1.2);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+
+            @keyframes dislike_effect {
+                0% {
+                    transform: scale(0);
+                }
+
+                50% {
+                    transform: scale(1.2);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
         }
 
         .movieOtherInformation {
-            margin-top: 4rem;
+            margin-top: 5rem;
             font-size: 1.6rem;
             display: flex;
             flex-direction: column;
@@ -109,7 +178,7 @@
         }
 
         .movieGenre {
-            margin-top: 3rem;
+            margin-top: 4rem;
             font-size: 1.6rem;
 
             // @include media.laptops 
@@ -224,13 +293,13 @@
             &::-webkit-scrollbar {
                 width: 1rem !important;
             }
-            
+
             &::-webkit-scrollbar-track {
                 background-color: white;
                 border-radius: 2rem;
 
             }
-            
+
             &::-webkit-scrollbar-thumb {
                 background-color: #05091d;
                 border-radius: 2rem;
