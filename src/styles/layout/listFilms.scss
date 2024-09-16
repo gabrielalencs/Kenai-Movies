@@ -67,19 +67,12 @@
         margin: 0 auto;
         opacity: 0;
 
-
         @media (width >= 600px) {
             width: 100%;
             max-width: 27rem;
             margin: 0 auto;
         }
-
-        // @include media.tablets {
-        //     width: 100%;
-        //     max-width: 27rem;
-        //     margin: 0 auto;
-        // }
-
+        
         @include media.laptops {
             width: 100%;
             margin: 0;
