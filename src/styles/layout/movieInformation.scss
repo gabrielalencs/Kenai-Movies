@@ -5,7 +5,6 @@
     margin-bottom: 10rem;
 
     .movieInformationHeader {
-        // background: linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/yDHYTfA3R0jFYba16jBB1ef8oIt.jpg);
         background-size: cover !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
@@ -18,8 +17,6 @@
 
             @include media.laptops {
                 flex-direction: row;
-                // align-items: center;
-                // justify-content: center;
                 gap: 8rem;
                 padding: 6rem 4rem 4rem;
             }
@@ -40,8 +37,6 @@
                 @include media.laptops {
                     width: 100%;
                     max-width: 100%;
-                    // position: relative;
-                    // top: 3rem;
                 }
             }
         }
@@ -53,14 +48,10 @@
 
             @include media.laptops {
                 margin: 0;
-                // max-width: 100%;
-                // position: relative;
-                // top: 3rem;
             }
 
             @include media.desktops {
                 max-width: 70rem;
-
             }
         }
 
@@ -165,7 +156,6 @@
             @include media.desktops {
                 gap: 2.5rem;
                 flex-direction: row;
-                // flex-wrap: wrap;
             }
 
             p {
@@ -181,8 +171,6 @@
             margin-top: 4rem;
             font-size: 1.6rem;
 
-            // @include media.laptops 
-
             p {
                 font-weight: 700;
             }
@@ -197,11 +185,6 @@
 
             li {
                 font-weight: normal;
-                // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
-                // padding: .7rem 2rem;
-                // display: grid;
-                // place-items: center;
-                // border-radius: 1rem;
             }
         }
 

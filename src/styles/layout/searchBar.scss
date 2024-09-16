@@ -25,11 +25,9 @@
         border-radius: 1rem;
         background-color: rgba(27, 24, 46, 0.904);
         background-color: rgb(26, 24, 49);
-        // background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
         transition: all 0.3s ease;
 
         @include media.tablets {
-            // background-color: rgba(38, 35, 65, 0.842);
             background-color: rgb(26, 24, 49);
         }
 
@@ -92,7 +90,6 @@
     height: 27rem !important;
     pointer-events: all !important;
     z-index: 99999;
-
 }
 
 .containerSearchBarFilms {
@@ -104,7 +101,6 @@
     overflow-y: scroll;
     height: 0;
     opacity: 0;
-    // pointer-events: none;
     transition: all .3s;
     z-index: 99999;
 
