@@ -7,7 +7,6 @@
     box-sizing: border-box;
     width: fit-content;
     cursor: pointer;
-    z-index: 99999;
 
     @include media.laptops {
         margin-top: 0;
@@ -16,25 +15,20 @@
     .mainBox {
         box-sizing: border-box;
         position: relative;
-        width: 23rem;
+        width: 80vw;
+        max-width: 37rem;
         height: 5rem;
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         border-radius: 1rem;
-        background-color: rgba(27, 24, 46, 0.904);
-        background-color: rgb(26, 24, 49);
+        background-color: rgb(22, 20, 43);
         transition: all 0.3s ease;
-
-        @include media.tablets {
-            background-color: rgb(26, 24, 49);
-        }
+        padding: 0 2rem;
 
         @include media.laptops {
             width: 30rem;
-            justify-content: space-between;
-            padding: 0 2rem;
         }
     }
 
@@ -89,10 +83,11 @@
     opacity: 100 !important;
     height: 27rem !important;
     pointer-events: all !important;
-    z-index: 99999;
+    z-index: 10;
 }
 
 .containerSearchBarFilms {
+    border-top: 2px solid rgb(27, 25, 53);
     background-color: rgb(22, 20, 43);
     border-radius: 1rem;
     position: absolute;
@@ -102,18 +97,19 @@
     height: 0;
     opacity: 0;
     transition: all .3s;
-    z-index: 99999;
+    z-index: 10;
 
     &::-webkit-scrollbar {
         width: 1rem;
     }
 
     &::-webkit-scrollbar-track {
-
+        border-radius: 1rem;
         background-color: rgb(19, 17, 37);
     }
 
     &::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
         background-color: white;
     }
 

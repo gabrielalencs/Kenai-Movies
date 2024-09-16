@@ -11,7 +11,7 @@ const HeroSection = () => {
                     Descubra um <span>Mundo de Filmes</span> Incríveis.
                 </h1>
                 <h2 className='heroDescription'>
-                    Bem-vindo ao Kenai. O seu portal definitivo para descobrir e explorar filmes. Sua jornada pelo mundo do cinema começa agora.
+                    Bem-vindo ao Kenai. O seu portal para descobrir e explorar filmes. Sua jornada pelo mundo do cinema começa agora.
                 </h2>
             </div>
         </main>

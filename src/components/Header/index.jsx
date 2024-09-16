@@ -18,12 +18,8 @@ import SearchBar from '../SearchBar';
 const Header = () => {
 
     const menuDropdownRef = useRef(null);
-
-    const [menuMobileActive, setMenuMobileActive] = useState(false);
     const [menuDropdownActive, setMenuDropdownActive] = useState(false);
 
-
-    const handleClickButtonMobile = () => setMenuMobileActive(!menuMobileActive);
 
     const handleClickLinkMenuDropdown = () => {
         setMenuDropdownActive(!menuDropdownActive);
@@ -31,23 +27,6 @@ const Header = () => {
         document.querySelector('body').classList.toggle('menuDropdownActive');
     };
 
-    const handleResize = useCallback(() => {
-        const buttonMenuMobile = document.querySelector('.headerButtonMobile input');
-
-        if (window.innerWidth > 992) {
-            setMenuMobileActive(false);
-            buttonMenuMobile.checked = false;
-        }
-    }, []);
-
-
-    useEffect(() => {
-        window.addEventListener('resize', handleResize);
-
-        handleResize();
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, [handleResize]);
 
     useEffect(() => {
         document.addEventListener('click', (e) => {
@@ -56,7 +35,7 @@ const Header = () => {
                 document.querySelector('body').classList.remove('menuDropdownActive');
             }
         });
-    }, [menuMobileActive]);
+    }, []);
 
 
 
@@ -70,7 +49,7 @@ const Header = () => {
                 </div>
 
                 <div className='headerContent'>
-                    <nav className={`headerNav ${menuMobileActive ? 'menuMobileActive' : ''}`}>
+                    <nav className='headerNav'>
                         <ul className='headerList'>
                             <li className='listItem' ref={menuDropdownRef} onClick={handleClickLinkMenuDropdown}>
                                 Filmes
@@ -85,24 +64,9 @@ const Header = () => {
                                 <Link to='/favorites-list'>Minha lista</Link>
                             </li>
                         </ul>
-                       
-                        <SearchBar />
                     </nav>
 
-                    <div className='headerButtonMobile'>
-                        <label className="container">
-                            <input
-                                type="checkbox"
-                                onChange={handleClickButtonMobile}
-                            />
-
-                            <div className="checkmark">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </label>
-                    </div>
+                    <SearchBar />
                 </div>
             </div>
         </header>

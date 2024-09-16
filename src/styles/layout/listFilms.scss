@@ -2,7 +2,7 @@
 @use '../abstracts/breakpoints' as media;
 
 .listFilmsContainer {
-    margin-top: 12rem;
+    margin-top: 10rem;
     padding: 0 4rem;
     position: relative;
     z-index: 1;
@@ -29,16 +29,24 @@
     }
 
     .listFilmsTitle {
-        font-size: 3rem;
+        font-size: 2.4rem;
         color: color.$white;
         width: max-content;
+
+        @include media.largeMobiles {
+            font-size: 2.7rem;
+        }
+
+        @include media.tablets {
+            font-size: 3rem;
+        }
 
         &::after {
             content: '';
             display: block;
             position: relative;
-            top: .5rem;
-            width: 50%;
+            top: .7rem;
+            width: 60%;
             height: 2px;
             background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
         }
@@ -48,8 +56,9 @@
         position: relative;
         transition: all .3s;
         cursor: pointer;
-        width: 100%;
-        max-width: 35rem;
+        width: 75%;
+        max-width: 25rem;
+        margin: 0 auto;
         opacity: 0;
 
         @include media.tablets {
@@ -98,12 +107,16 @@
 
         .mainTitle {
             color: white;
-            font-size: 1.9rem;
+            font-size: 1.6rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+
+            @include media.largeMobiles {
+                font-size: 1.8rem;
+            }
 
             @include media.laptops {
                 font-size: 1.6rem;
@@ -116,7 +129,11 @@
             align-items: center;
             gap: 1rem;
             color: white;
-            font-size: 1.9rem;
+            font-size: 1.7rem;
+
+            @include media.largeMobiles {
+                font-size: 1.9rem;
+            }
 
             @include media.laptops {
                 font-size: 1.6rem;
@@ -124,7 +141,11 @@
 
             svg {
                 color: yellow;
-                font-size: 2.2rem;
+                font-size: 2rem;
+
+                @include media.largeMobiles {
+                    font-size: 2.2rem;
+                }
 
                 @include media.laptops {
                     font-size: 1.9rem;

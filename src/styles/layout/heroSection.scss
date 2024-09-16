@@ -5,10 +5,18 @@
     height: 300px;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.91), rgba(0, 0, 0, 0.663)), url('../../assets/images/banner-hero.jpg') center/cover no-repeat;
 
+    .container {
+        padding: 0 4rem;
+    }
+
     .heroTitle {
         color: color.$white;
         padding-top: 7rem;
-        font-size: 4rem;
+        font-size: 2.5rem;
+
+        @include media.tablets {
+            font-size: 4rem;
+        }
 
         span {
             background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
@@ -18,11 +26,15 @@
     }
 
     .heroDescription {
-        font-size: 2rem;
-        width: 70rem;
-        margin: 1rem 0 0;
+        max-width: 70rem;
+        margin: 1.5rem 0 0;
         color: #f8f8ff;
-        line-height: 3rem;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+
+        @include media.tablets {
+            font-size: 2rem;
+            line-height: 3rem;
+        }
     }
-    
 }
