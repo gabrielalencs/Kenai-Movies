@@ -36,7 +36,7 @@ body {
 
 @include media.tablets {
     .menuDropdownActive {
-        padding-right: 1rem;
+        padding-right: 1.5rem;
         overflow: hidden;
     }
 }
