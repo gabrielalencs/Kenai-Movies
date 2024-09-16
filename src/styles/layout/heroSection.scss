@@ -14,7 +14,7 @@
         padding-top: 7rem;
         font-size: 2.5rem;
 
-        @include media.tablets {
+        @media (width >= 600px) {
             font-size: 3rem;
         }
 
@@ -32,9 +32,13 @@
         font-size: 1.5rem;
         line-height: 2.5rem;
 
+        @media (width >= 600px) {
+            font-size: 1.8rem;
+            line-height: 3rem;
+        }
+
         @include media.tablets {
             font-size: 2rem;
-            line-height: 3rem;
         }
     }
 }

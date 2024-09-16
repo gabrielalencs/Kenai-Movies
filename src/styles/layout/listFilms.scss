@@ -12,12 +12,18 @@
         display: grid;
         gap: 5rem;
 
+        @media (width >= 600px) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         @include media.tablets {
-            gap: 4rem;
+            // width: 80%;
+            row-gap: 7rem;
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         @include media.laptops {
+            width: 100%;
             gap: 4rem;
             grid-template-columns: repeat(4, minmax(0, 1fr));
         }
@@ -61,9 +67,18 @@
         margin: 0 auto;
         opacity: 0;
 
-        @include media.tablets {
-            max-width: 100%;
+
+        @media (width >= 600px) {
+            width: 100%;
+            max-width: 27rem;
+            margin: 0 auto;
         }
+
+        // @include media.tablets {
+        //     width: 100%;
+        //     max-width: 27rem;
+        //     margin: 0 auto;
+        // }
 
         @include media.laptops {
             width: 100%;

@@ -48,7 +48,7 @@ const MovieInformation = () => {
 
         const isCurrentFavoriteMovie = storedFavorites.some(item => item.id === movie.id);
 
-        toggleFavoriteFilm(movie, isCurrentFavoriteMovie); 
+        toggleFavoriteFilm(movie, isCurrentFavoriteMovie);
     };
 
     const toggleFavoriteFilm = (movie, isCurrentFavoriteMovie) => {
@@ -72,9 +72,9 @@ const MovieInformation = () => {
         const isCurrentFavoriteMovie = storedFavorites?.some(item => item.id === movieInformation.id);
 
         if (isCurrentFavoriteMovie) {
-            setIsFavoriteMovie(true); 
+            setIsFavoriteMovie(true);
         } else {
-            setIsFavoriteMovie(false); 
+            setIsFavoriteMovie(false);
         }
 
     }, [movieInformation.id]);
@@ -131,10 +131,15 @@ const MovieInformation = () => {
                         </div>
 
                         <div className='movieOtherInformation'>
-                            <p>
-                                Data de Lançamento:
-                                <span> {formatDate(movieInformation.release_date)}</span>
-                            </p>
+                            {
+                                movieInformation.release_date.length > 0 && (
+                                    <p>
+                                        Data de Lançamento:
+                                        <span> {formatDate(movieInformation.release_date)}</span>
+                                    </p>
+                                )
+                            }
+
                             <p>
                                 Duração:
                                 <span> {formatMovieLength(movieInformation.runtime)}</span>
@@ -145,16 +150,20 @@ const MovieInformation = () => {
                             </p>
                         </div>
 
-                        <div className='movieGenre'>
-                            <p>Gênero do Filme: </p>
-                            <ul>
-                                {
-                                    movieInformation.genres.map(genre => (
-                                        <li key={genre.id}>{genre.name}</li>
-                                    ))
-                                }
-                            </ul>
-                        </div>
+                        {
+                            movieInformation.genres.length > 0 && (
+                                <div className='movieGenre'>
+                                    <p>Gênero do Filme: </p>
+                                    <ul>
+                                        {
+                                            movieInformation.genres.map(genre => (
+                                                <li key={genre.id}>{genre.name}</li>
+                                            ))
+                                        }
+                                    </ul>
+                                </div>
+                            )
+                        }
 
                         <div className='movieSynopsis'>
                             <h4>Sinopse</h4>
@@ -177,26 +186,31 @@ const MovieInformation = () => {
                 </div>
             </div>
 
-            <div className={`filmCastContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`} >
-                <h3 className='castTitle'>Elenco Original</h3>
+            {
+                filmCastWithPoster.length > 0 && (
+                    <div className={`filmCastContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`} >
+                        <h3 className='castTitle'>Elenco Original</h3>
 
-                <div className='castContainer'>
-                    {
-                        filmCastWithPoster.map(cast => (
-                            <div className='cast' key={cast.id}>
-                                <div className='castImage'>
-                                    <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
-                                </div>
+                        <div className='castContainer'>
+                            {
+                                filmCastWithPoster.map(cast => (
+                                    <div className='cast' key={cast.id}>
+                                        <div className='castImage'>
+                                            <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
+                                        </div>
 
-                                <div className='castContent'>
-                                    <h3>{cast.name}</h3>
-                                    <span>{cast.character}</span>
-                                </div>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
+                                        <div className='castContent'>
+                                            <h3>{cast.name}</h3>
+                                            <span>{cast.character}</span>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+                )
+            }
+
 
             {
                 keyToMovieTrailer &&

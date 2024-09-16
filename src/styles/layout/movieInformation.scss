@@ -56,18 +56,20 @@
         }
 
         .movieTitle {
-            text-align: center;
+            // text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
 
-            @include media.laptops {
-                text-align: left;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+            @include media.tablets {
                 gap: 8rem;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
             }
 
             h3 {
-                font-size: 2.7rem;
+                font-size: 2.5rem;
 
                 @include media.tablets {
                     font-size: 3.3rem;
@@ -89,6 +91,7 @@
                 font-size: 20px;
                 user-select: none;
                 transition: .3s;
+                // align-self: flex-end;
             }
 
             .checkmark {
@@ -109,7 +112,7 @@
                 animation: like_effect 400ms ease;
             }
 
-            .heartContainer:hover {
+            .heartContainer .checkmark:hover {
                 transform: scale(1.1);
             }
 
@@ -274,7 +277,7 @@
             padding-bottom: 2rem;
 
             &::-webkit-scrollbar {
-                width: 1rem !important;
+                height: 1rem !important;
             }
 
             &::-webkit-scrollbar-track {
@@ -285,7 +288,7 @@
 
             &::-webkit-scrollbar-thumb {
                 background-color: #05091d;
-                border-radius: 2rem;
+                width: 5rem;
             }
         }
 
