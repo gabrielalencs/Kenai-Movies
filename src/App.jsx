@@ -21,10 +21,8 @@ import FavoritesList from "./pages/FavoritesList";
 
 function App() {
 
-
     return (
         <>
-
             <BrowserRouter>
                 <Header />
                 <Routes>

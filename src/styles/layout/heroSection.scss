@@ -1,0 +1,29 @@
+@use '../abstracts/colors' as color;
+@use '../abstracts/breakpoints' as media;
+
+.heroContainer {
+    height: 300px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.91), rgba(0, 0, 0, 0.663)), url('../../assets/images/banner-hero.jpg') center/cover no-repeat;
+
+    .heroTitle {
+        color: color.$white;
+        padding-top: 7rem;
+        font-size: 4rem;
+
+
+        span {
+            background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .heroDescription {
+        font-size: 2rem;
+        width: 70rem;
+        margin: 1rem 0 0;
+        color: #f8f8ff;
+        line-height: 3rem;
+    }
+    
+}

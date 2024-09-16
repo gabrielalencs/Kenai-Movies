@@ -6,9 +6,10 @@ import { useContext } from 'react';
 
 import { CategoryInformationContext } from '../../context/CategoryInformationContext';
 
-// Component
+// Components
 
 import ListFilms from '../../components/ListFilms';
+import HeroSection from "../../components/HeroSection";
 
 
 const MoviesNowShowing = () => {
@@ -17,13 +18,17 @@ const MoviesNowShowing = () => {
 
     const titleMoviesNowShowing = categoryInformation[1].title;
     const listMoviesNowShowing = categoryInformation[1].fetchMovieList();
-    
-    
+
+
     return (
-        <ListFilms 
-            title={titleMoviesNowShowing} 
-            listFilms={listMoviesNowShowing} 
-        />
+        <>
+            <HeroSection />
+            <ListFilms
+                title={titleMoviesNowShowing}
+                listFilms={listMoviesNowShowing}
+            />
+        </>
+
     )
 }
 
