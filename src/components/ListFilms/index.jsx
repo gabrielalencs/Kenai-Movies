@@ -53,7 +53,7 @@ const ListFilms = ({ title, listFilms }) => {
                     listFilmsResponse && listFilmsResponse.map(movie => (
                         <div className='filmContainer fade' key={movie.id}>
                             <div className='filmContainerImage'>
-                                <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
                             </div>
 
                             <div className='filmContainerMainTitle'>

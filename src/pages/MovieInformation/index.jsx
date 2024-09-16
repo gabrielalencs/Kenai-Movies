@@ -100,7 +100,7 @@ const MovieInformation = () => {
         <section className='movieInformationContainer'>
             <div
                 className={`movieInformationHeader ${isAnimationFadeInUp ? 'fadeInUp' : ''}`}
-                style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500/${movieInformation.backdrop_path})` }}
+                style={{ background: `linear-gradient(0deg, rgba(0, 0, 0, 0.911), rgba(0, 0, 0, 0.664)), url(https://image.tmdb.org/t/p/w500${movieInformation.backdrop_path})` }}
             >
                 <div className="container">
                     <div className='movieInformationImage'>
