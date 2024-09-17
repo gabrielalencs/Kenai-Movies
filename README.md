@@ -23,7 +23,7 @@
 <h2>💻 Tecnologias</h2>
 <ul>
 	<li>ReactJS</li>
-	<li>Sass/Scss</li>
+	<li>SASS/SCSS</li>
 	<li>React Router</li>
 	<li>Context API</li>
 	<li>Vite</li>
