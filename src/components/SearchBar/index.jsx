@@ -127,7 +127,7 @@ const SearchBar = () => {
 
                                         <div className='releaseDate'>
                                             <span>
-                                                {movie.release_date.slice(0, 4)}
+                                                {movie.release_date?.slice(0, 4)}
                                             </span>
                                         </div>
                                     </div>
