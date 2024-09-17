@@ -1,9 +1,11 @@
 <div align="center">
 	<h1>Kenai 🎬🍿</h1>
 	<img src="./src//assets/images/print-home.PNG" width="700">
-  <p>
-   $\color{DeepPink}{\textsf{Kenai}}$ é uma plataforma interativa desenvolvida para os $\color{DarkOrange}{\textsf{amantes de cinema}}$, permitindo que os usuários descubram novos filmes, oferecendo $\color{DeepPink}{\textsf{detalhes completos}}$ sobre cada um, como elenco e trailers. Além disso, os usuários podem criar uma $\color{DarkOrange}{\textsf{coleção personalizada}}$ de seus filmes preferidos.
-  </p>
+	<br>
+	<br>
+	<p>
+	   $\color{DeepPink}{\textsf{Kenai}}$ é uma plataforma interativa desenvolvida para os $\color{DarkOrange}{\textsf{amantes de cinema}}$, permitindo que os usuários descubram novos filmes, oferecendo $\color{DeepPink}{\textsf{detalhes completos}}$ sobre cada um, como elenco e trailers. Além disso, os usuários podem criar uma $\color{DarkOrange}{\textsf{coleção personalizada}}$ de seus filmes preferidos.
+	</p>
 </div>
 
 
