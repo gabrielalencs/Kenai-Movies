@@ -8,6 +8,7 @@
 	</p>
 </div>
 
+<br>
 
 <h2 id="functionalities">⚙ Funcionalidades</h2>
 
