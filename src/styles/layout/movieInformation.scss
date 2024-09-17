@@ -18,7 +18,7 @@
             @include media.laptops {
                 flex-direction: row;
                 gap: 8rem;
-                padding: 6rem 4rem 4rem;
+                padding: 6rem 4rem 7rem;
             }
         }
 
@@ -144,7 +144,7 @@
         }
 
         .movieOtherInformation {
-            margin-top: 5rem;
+            margin-top: 4rem;
             font-size: 1.6rem;
             display: flex;
             flex-direction: column;
@@ -169,7 +169,7 @@
         }
 
         .movieGenre {
-            margin-top: 4rem;
+            margin-top: 3rem;
             font-size: 1.6rem;
 
             p {
@@ -190,7 +190,7 @@
         }
 
         .movieSynopsis {
-            margin-top: 4rem;
+            margin-top: 3rem;
 
             h4 {
                 font-size: 2rem;
@@ -204,7 +204,7 @@
         }
 
         .movieDirection {
-            margin-top: 5rem;
+            margin-top: 4rem;
             display: flex;
             flex-wrap: wrap;
             column-gap: 7rem;
@@ -224,40 +224,9 @@
         }
     }
 
-    .trailerMovieContainer {
-        margin-top: 10rem;
-        padding: 0 4rem;
-
-        .trailerTitle {
-            font-size: 3rem;
-            background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            max-width: max-content;
-        }
-
-        .trailerContainer {
-            margin-top: 3rem;
-
-            iframe {
-                width: 100%;
-                max-width: 80rem;
-                height: 25rem;
-
-                @include media.tablets {
-                    height: 40rem;
-                }
-
-                @include media.laptops {
-                    height: 45rem;
-                }
-            }
-        }
-    }
-
     .filmCastContainer {
         padding: 0 4rem;
-        margin-top: 13rem;
+        margin-top: 10rem;
 
         .castTitle {
             font-size: 3rem;
@@ -322,4 +291,37 @@
             }
         }
     }
+
+    .trailerMovieContainer {
+        margin-top: 10rem;
+        padding: 0 4rem;
+
+        .trailerTitle {
+            font-size: 3rem;
+            background: linear-gradient(264.26deg, #FF267A 0%, #FFA634 101.03%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            max-width: max-content;
+        }
+
+        .trailerContainer {
+            margin-top: 3rem;
+
+            iframe {
+                width: 100%;
+                max-width: 80rem;
+                height: 25rem;
+
+                @include media.tablets {
+                    height: 40rem;
+                }
+
+                @include media.laptops {
+                    height: 45rem;
+                }
+            }
+        }
+    }
+
+
 }

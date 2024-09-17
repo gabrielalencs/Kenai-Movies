@@ -32,7 +32,6 @@ const MovieInformation = () => {
 
     const formatDate = (unformattedDate) => {
         const partsDate = unformattedDate.split('-');
-
         return `${partsDate[2]}/${partsDate[1]}/${partsDate[0]}`
     };
 
@@ -42,10 +41,8 @@ const MovieInformation = () => {
         return `${hours}h ${minutesRemaining}m`;
     };
 
-
     const handleFavoriteButton = (movie) => {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites-movies')) || [];
-
         const isCurrentFavoriteMovie = storedFavorites.some(item => item.id === movie.id);
 
         toggleFavoriteFilm(movie, isCurrentFavoriteMovie);
@@ -95,7 +92,6 @@ const MovieInformation = () => {
     }, [movieInformation]);
 
 
-
     return (
         <section className='movieInformationContainer'>
             <div
@@ -110,7 +106,6 @@ const MovieInformation = () => {
                     <div className='movieInformationMainInfos'>
                         <div className='movieTitle'>
                             <h3>{movieInformation.title}</h3>
-
                             <label className="heartContainer">
                                 <input
                                     type="checkbox"
@@ -127,7 +122,6 @@ const MovieInformation = () => {
                                     </svg>
                                 </div>
                             </label>
-
                         </div>
 
                         <div className='movieOtherInformation'>
@@ -139,7 +133,6 @@ const MovieInformation = () => {
                                     </p>
                                 )
                             }
-
                             <p>
                                 Duração:
                                 <span> {formatMovieLength(movieInformation.runtime)}</span>
