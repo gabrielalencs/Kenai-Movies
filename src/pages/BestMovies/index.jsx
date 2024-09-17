@@ -13,12 +13,11 @@ import HeroSection from "../../components/HeroSection";
 
 
 const BestMovies = () => {
-
     const { categoryInformation } = useContext(CategoryInformationContext);
 
     const titleBestMovies = categoryInformation[2].title;
     const listBestMovies = categoryInformation[2].fetchMovieList();
-
+    
 
     return (
         <>

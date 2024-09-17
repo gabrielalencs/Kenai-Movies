@@ -16,17 +16,14 @@ import SearchBar from '../SearchBar';
 
 
 const Header = () => {
-
     const menuDropdownRef = useRef(null);
     const [menuDropdownActive, setMenuDropdownActive] = useState(false);
-
 
     const handleClickLinkMenuDropdown = () => {
         setMenuDropdownActive(!menuDropdownActive);
 
         document.querySelector('body').classList.toggle('menuDropdownActive');
     };
-
 
     useEffect(() => {
         document.addEventListener('click', (e) => {
@@ -36,7 +33,6 @@ const Header = () => {
             }
         });
     }, []);
-
 
 
     return (

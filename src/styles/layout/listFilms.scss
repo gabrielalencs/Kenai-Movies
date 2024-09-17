@@ -17,7 +17,6 @@
         }
 
         @include media.tablets {
-            // width: 80%;
             row-gap: 7rem;
             grid-template-columns: repeat(3, minmax(0, 1fr));
         }
@@ -61,7 +60,6 @@
     .filmContainer {
         position: relative;
         transition: all .3s;
-        cursor: pointer;
         width: 75%;
         max-width: 25rem;
         margin: 0 auto;

@@ -10,7 +10,6 @@ import useFetchData from "../hooks/useFetchData";
 export const CategoryInformationContext = createContext();
 
 export const CategoryInformationProvider = ({ children }) => {
-
     const fetchPopularMovies = () => {
         let { moviesList } = useFetchData('https://api.themoviedb.org/3/movie/popular?api_key=071bb306893009d6309f4184450837f3&language=pt-BR');
         return moviesList;

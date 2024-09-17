@@ -56,7 +56,6 @@
         }
 
         .movieTitle {
-            // text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -89,7 +88,6 @@
                 font-size: 20px;
                 user-select: none;
                 transition: .3s;
-                // align-self: flex-end;
             }
 
             .checkmark {
@@ -211,7 +209,7 @@
             row-gap: 4rem;
 
             @include media.laptops {
-                width: 85%;
+                width: 90%;
             }
 
             .movieDirectionItem h4 {
@@ -268,7 +266,6 @@
         }
 
         .castImage {
-
             img {
                 width: 100%;
             }
@@ -322,6 +319,4 @@
             }
         }
     }
-
-
 }

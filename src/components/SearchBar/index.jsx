@@ -26,13 +26,14 @@ const SearchBar = () => {
     const navigate = useNavigate();
 
     const containerSearchBarRef = useRef(null);
+    const searchInputRef = useRef(null);
     const containerListFilms = useRef(null);
 
     const [openSearchBar, setOpenSearchBar] = useState(false);
     const [searchInputValue, setSearchInputValue] = useState('');
     const [selectedMovieInformation, setSelectedMovieInformation] = useState(null);
 
-    let { moviesList: searchedMovie, loading } = useFetchData(`https://api.themoviedb.org/3/search/movie?query=${!searchInputValue ? 'Homem Aranha' : searchInputValue}&api_key=071bb306893009d6309f4184450837f3&language=pt-BR`)
+    let { moviesList: searchedMovie, loading } = useFetchData(`https://api.themoviedb.org/3/search/movie?query=${!searchInputValue ? 'Vingadores' : searchInputValue}&api_key=071bb306893009d6309f4184450837f3&language=pt-BR`);
     let searchedMovieResults = searchedMovie.results;
     let moviesWithPoster = searchedMovieResults?.filter(movie => movie.poster_path && movie.poster_path.trim() !== '');
 
@@ -64,7 +65,9 @@ const SearchBar = () => {
 
     const handleMovieClick = (movie) => {
         setSelectedMovieInformation(movie);
-        setSearchInputValue('');
+        setSearchInputValue(movie.title);
+        
+        searchInputRef.current.focus()
     };
 
 
@@ -89,6 +92,7 @@ const SearchBar = () => {
                         type="search"
                         className="searchInput"
                         placeholder="Search"
+                        ref={searchInputRef}
                         value={searchInputValue}
                         onChange={(e) => setSearchInputValue(e.target.value)}
                     />

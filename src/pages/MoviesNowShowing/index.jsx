@@ -13,7 +13,6 @@ import HeroSection from "../../components/HeroSection";
 
 
 const MoviesNowShowing = () => {
-
     const { categoryInformation } = useContext(CategoryInformationContext);
 
     const titleMoviesNowShowing = categoryInformation[1].title;

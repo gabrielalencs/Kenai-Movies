@@ -28,7 +28,7 @@
         padding: 0 2rem;
 
         @include media.laptops {
-            width: 30rem;
+            width: 35rem;
         }
     }
 
@@ -47,7 +47,7 @@
     .searchInput {
         box-sizing: border-box;
         height: 100%;
-        width: 17rem;
+        width: 80%;
         background-color: transparent;
         border: none;
         outline: none;

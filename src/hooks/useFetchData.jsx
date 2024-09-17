@@ -1,7 +1,6 @@
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 
 const useFetchData = (endpoint) => {
-
     const [moviesList, setMoviesList] = useState([]);
     const [loading, setLoading] = useState(false);
 

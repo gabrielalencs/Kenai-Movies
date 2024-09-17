@@ -16,9 +16,8 @@ import { FavoriteListContext } from '../../context/FavoriteListContext';
 
 
 const MovieInformation = () => {
-
-    const location = useLocation();
-    const movieInformation = location.state.infoMovie;
+    const { state } = useLocation();
+    const movieInformation = state.infoMovie;
 
     const { favoriteMoviesList, setFavoriteMoviesList } = useContext(FavoriteListContext);
     const [isFavoriteMovie, setIsFavoriteMovie] = useState(false);
@@ -62,6 +61,7 @@ const MovieInformation = () => {
 
         setIsFavoriteMovie(!isCurrentFavoriteMovie);
     };
+
 
     useEffect(() => {
         const storedFavorites = JSON.parse(localStorage.getItem('favorites-movies')) || [];
@@ -180,30 +180,28 @@ const MovieInformation = () => {
             </div>
 
             {
-                filmCastWithPoster.length > 0 && (
-                    <div className={`filmCastContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`} >
-                        <h3 className='castTitle'>Elenco Original</h3>
+                filmCastWithPoster.length > 0 &&
+                (<div className={`filmCastContainer container ${isAnimationFadeInUp ? 'fadeInUp' : ''}`} >
+                    <h3 className='castTitle'>Elenco Original</h3>
 
-                        <div className='castContainer'>
-                            {
-                                filmCastWithPoster.map(cast => (
-                                    <div className='cast' key={cast.id}>
-                                        <div className='castImage'>
-                                            <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
-                                        </div>
-
-                                        <div className='castContent'>
-                                            <h3>{cast.name}</h3>
-                                            <span>{cast.character}</span>
-                                        </div>
+                    <div className='castContainer'>
+                        {
+                            filmCastWithPoster.map(cast => (
+                                <div className='cast' key={cast.id}>
+                                    <div className='castImage'>
+                                        <img src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`} alt="imagem do ator" />
                                     </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                )
-            }
 
+                                    <div className='castContent'>
+                                        <h3>{cast.name}</h3>
+                                        <span>{cast.character}</span>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>)
+            }
 
             {
                 keyToMovieTrailer &&

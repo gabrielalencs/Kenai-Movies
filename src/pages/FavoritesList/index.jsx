@@ -10,27 +10,23 @@ import '../../styles/layout/favoriteList.scss';
 
 import { useNavigate } from 'react-router-dom';
 
-
 // Context
 
 import { FavoriteListContext } from '../../context/FavoriteListContext';
 
 
 const FavoritesList = () => {
-
     const { favoriteMoviesList } = useContext(FavoriteListContext);
     const navigate = useNavigate();
-
-
+    
     const openMovieInformation = async (favoriteMovie) => {
         const data = await fetch(`https://api.themoviedb.org/3/movie/${favoriteMovie.id}?api_key=071bb306893009d6309f4184450837f3&append_to_response=credits,videos,release_dates&language=pt-BR`);
         const infoMovie = await data.json();
 
         navigate(`/movie/${favoriteMovie.id}`, { state: { infoMovie } });
-    }
+    };
 
-
-
+    
     return (
         <section className='favoriteListContainer container fadeInUp'>
             <h2 className='favoriteListTitle'>Filmes Favoritos</h2>

@@ -21,7 +21,7 @@
         display: grid;
         gap: 5rem;
 
-        @media (width >= 600px) {
+        @media (width >=600px) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -46,7 +46,7 @@
         width: 75%;
         max-width: 25rem;
 
-        @media (width >= 600px) {
+        @media (width >=600px) {
             width: 100%;
             max-width: 27rem;
             margin: 0 auto;

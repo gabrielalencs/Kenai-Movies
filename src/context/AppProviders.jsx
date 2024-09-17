@@ -3,7 +3,6 @@
 import { CategoryInformationProvider } from "./CategoryInformationContext";
 import { FavoriteListProvider } from "./FavoriteListContext";
 
-
 const AppProviders = ({ children }) => {
     return (
         <CategoryInformationProvider>

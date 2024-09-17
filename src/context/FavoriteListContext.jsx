@@ -6,7 +6,6 @@ import { createContext, useState, useEffect } from "react";
 export const FavoriteListContext = createContext();
 
 export const FavoriteListProvider = ({ children }) => {
-
     const [favoriteMoviesList, setFavoriteMoviesList] = useState([]);
 
     useEffect(() => {

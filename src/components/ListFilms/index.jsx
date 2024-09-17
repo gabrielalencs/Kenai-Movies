@@ -22,11 +22,9 @@ const ListFilms = ({ title, listFilms }) => {
 
     const listFilmsResponse = listFilms.results;
 
-
     const handleMovieClick = (movie) => {
         setSelectedMovieInformation(movie);
     };
-
 
     useEffect(() => {
         if (selectedMovieInformation) {
