@@ -31,4 +31,4 @@ const MoviesNowShowing = () => {
     )
 }
 
-export default MoviesNowShowing;
+export default MoviesNowShowing; 

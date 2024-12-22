@@ -46,25 +46,23 @@ const ListFilms = ({ title, listFilms }) => {
                 {title}
             </h2>
 
-            <div className='listFilmsGrid'>
-                {
-                    listFilmsResponse && listFilmsResponse.map(movie => (
-                        <div className='filmContainer fade' key={movie.id}>
-                            <div className='filmContainerImage'>
-                                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+            <div className="listFilmsGrid">
+                {listFilmsResponse ? (
+                    listFilmsResponse.map((movie) => (
+                        <div className="filmContainer fade" key={movie.id}>
+                            <div className="filmContainerImage">
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                    alt={movie.title}
+                                />
                             </div>
-
-                            <div className='filmContainerMainTitle'>
-                                <span className='mainTitle'>
-                                    {movie.title}
-                                </span>
-
-                                <span className='averageTitle'>
+                            <div className="filmContainerMainTitle">
+                                <span className="mainTitle">{movie.title}</span>
+                                <span className="averageTitle">
                                     <FaStar />
                                     {movie.vote_average.toFixed(1)}
                                 </span>
                             </div>
-
                             <div className='filmContainerMoreInformation'>
                                 <span className='mainTitle'>
                                     {movie.title}
@@ -82,8 +80,17 @@ const ListFilms = ({ title, listFilms }) => {
                             <div className='filmContainerBackdrop'></div>
                         </div>
                     ))
-                }
+                ) : (
+                    Array.from({ length: 8 }).map((_, index) => (
+                        <div className="skeleton" key={index}>
+                            <div className="skeleton-image"></div>
+                            <div className="skeleton-title"></div>
+                            <div className="skeleton-text"></div>
+                        </div>
+                    ))
+                )}
             </div>
+
         </section>
     )
 }
