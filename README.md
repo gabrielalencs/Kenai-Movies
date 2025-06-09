@@ -4,7 +4,7 @@
 	<br>
 	<br>
 	<p>
-	   $\color{DeepPink}{\textsf{Kenai}}$ é uma plataforma interativa desenvolvida para os $\color{DarkOrange}{\textsf{amantes de cinema}}$, permitindo que os usuários descubram novos filmes, oferecendo $\color{DeepPink}{\textsf{detalhes completos}}$ sobre cada um, como elenco e trailers. Além disso, os usuários podem criar uma $\color{DarkOrange}{\textsf{coleção personalizada}}$ de seus filmes preferidos.
+	   Kenai é uma plataforma interativa desenvolvida para os amantes de cinema, permitindo que os usuários descubram novos filmes, oferecendo detalhes completos sobre cada um, como elenco e trailers. Além disso, os usuários podem criar uma coleção personalizada de seus filmes preferidos.
 	</p>
 </div>
 
